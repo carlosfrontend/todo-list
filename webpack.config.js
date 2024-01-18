@@ -1,5 +1,8 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 module.exports = {
   mode: "development",
@@ -11,6 +14,16 @@ module.exports = {
     filename: "[name].[contenthash].js",
     clean: true,
     assetModuleFilename: "[name][ext]",
+  },
+  optimization: {
+    minimizer: [
+      new TerserPlugin({
+        parallel: true,
+      }),
+      new CssMinimizerPlugin({
+        parallel: true,
+      }),
+    ],
   },
   devtool: "source-map",
   devServer: {
@@ -27,7 +40,11 @@ module.exports = {
     rules: [
       {
         test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
+        use: [
+          CssMinimizerPlugin.loader,
+          MiniCssExtractPlugin.loader,
+          "css-loader",
+        ],
       },
       {
         test: /\.js$/i,
@@ -50,9 +67,14 @@ module.exports = {
     ],
   },
   plugins: [
+    new MiniCssExtractPlugin({
+      filename: "[name].css",
+      chunkFilename: "[id].css",
+      ignoreOrder: false, // Enable to remove warnings about conflicting order
+    }),
     new HtmlWebpackPlugin({
       title: "Todo List",
-      favicon: "./favicon.ico",
+      favicon: "./favicon.svg",
       filename: "index.html",
       template: "./src/template.html",
       inject: "body",
