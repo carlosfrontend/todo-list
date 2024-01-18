@@ -6,7 +6,8 @@
   "private": true,
   "scripts": {
     "build": "webpack --mode=production",
-    "dev": "webpack serve"
+    "dev": "webpack serve",
+    "deploy":"git subtree push --prefix dist origin gh-pages"
   },
   "repository": {
     "type": "git",
