@@ -27,6 +27,7 @@ module.exports = {
   },
   devtool: "source-map",
   devServer: {
+    watchFiles: ["src/*.html"],
     static: {
       directory: path.resolve(__dirname, "dist"),
     },

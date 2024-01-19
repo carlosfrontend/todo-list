@@ -4,8 +4,67 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= htmlWebpackPlugin.options.title %></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <div id="container"></div>
+    <aside class="sidebar">
+      <div class="user-container">
+        <button class="user-info">
+          <span class="material-symbols-rounded account-circle">
+            account_circle
+          </span>
+          <span class="user">Odin User</span>
+        </button>
+      </div>
+      <div class="tasks-box">
+        <nav class="tasks-menu">
+          <div class="add">
+            <span class="material-symbols-rounded list-add-icon">
+              list_alt_add </span
+            ><span class="add-task-txt">Add Task</span>
+          </div>
+          <div class="menu-element">
+            <span class="material-symbols-rounded menu-icon">
+              calendar_today </span
+            ><span class="menu-txt">Today</span>
+          </div>
+          <div class="menu-element">
+            <span class="material-symbols-rounded menu-icon"> event </span
+            ><span class="menu-txt">Tomorrow</span>
+          </div>
+          <div class="menu-element">
+            <span class="material-symbols-rounded menu-icon"> date_range </span
+            ><span class="menu-txt">Next</span>
+          </div>
+        </nav>
+      </div>
+      <div class="projects-box">
+        <nav class="projects-menu">
+          <div class="menu-element-project">
+            <div class="menu-projects-txt">My Projects</div>
+            <div class="projects-buttons">
+              <span class="material-symbols-rounded projects-icon"> playlist_add </span>
+              <span class="material-symbols-rounded projects-icon"> expand_more </span>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </aside>
+    <div class="main" id="main">
+      <div class="togg-btn-container">
+        <span id="toggPanelBtn" class="material-symbols-rounded menu-open"
+          >menu_open</span
+        >
+      </div>
+    </div>
   </body>
 </html>
