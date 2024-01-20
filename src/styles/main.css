@@ -30,7 +30,7 @@ body {
   position: relative;
   left: 0;
   display: grid;
-  grid-template-rows: 6vh 2.5fr 4fr;
+  grid-template-rows: 6vh 2.5fr 6vh 4fr;
 }
 
 .main {
@@ -48,7 +48,8 @@ body {
 }
 
 .add,
-.menu-element {
+.menu-element,
+.project-item {
   height: 6vh;
   display: flex;
   justify-content: start;
@@ -63,7 +64,8 @@ body {
   color: rgb(228, 14, 68);
 }
 
-.menu-icon {
+.menu-icon,
+.project-icon {
   font-size: 1.5em;
   font-weight: 700;
   color: #1b171899;
@@ -75,7 +77,8 @@ body {
   font-size: 1rem;
 }
 
-.menu-txt {
+.menu-txt,
+.project-txt {
   color: #1b171899;
   font-weight: 700;
   font-size: 1rem;
@@ -87,6 +90,8 @@ body {
   align-items: center;
   justify-content: space-between;
   padding-left: 1em;
+  position: sticky;
+  top: 0;
 }
 
 .menu-projects-txt {
@@ -162,8 +167,12 @@ button.togg-panel {
 }
 
 .projects-box {
-  grid-row: 3/4;
+  grid-row: 4/5;
   overflow-y: auto;
+}
+
+.projects-menu {
+  grid-row: 3/4;
 }
 
 .counter {
@@ -194,5 +203,14 @@ button.togg-panel {
   .title {
     color: dodgerblue;
     font-weight: bold;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .sidebar {
+    display: none;
+  }
+  .main {
+    grid-column: 1/3;
   }
 }
