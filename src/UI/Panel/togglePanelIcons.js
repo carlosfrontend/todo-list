@@ -1,5 +1,5 @@
-import hidesPanel from "./Panel/hidesPanel";
-import showsPanel from "./Panel/showsPanel";
+import hidesPanel from "./hidesPanel";
+import showsPanel from "./showsPanel";
 
 // Change the open and close panel icons depending on the width of the window
 

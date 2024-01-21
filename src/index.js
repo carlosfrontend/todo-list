@@ -1,16 +1,17 @@
 import "./styles/main.css";
-import noTranslateIcons from "./ui/noTranslateIcons";
 import logoImg from "./img/logo.svg";
-import togglePanelIcons from "./ui/togglePanelIcons";
-import { togglePanel } from "./ui/togglePanel";
+import togglePanelIcons from "./UI/Panel/togglePanelIcons";
+import { togglePanel } from "./UI/Panel/togglePanel";
+import todoListDB from "./DB/todoListDB";
+import init from "./init";
 
 // Injects the main Logo
 const myLogo = document.querySelector(".logo");
 myLogo.src = logoImg;
-myLogo.alt = 'Todo List Logo'
+myLogo.alt = "Todo List Logo";
 
 const toggPanelBtn = document.querySelector("#toggPanelBtn");
-noTranslateIcons();
+
 // Change the sidebar open and close icons when the DOM is loaded in function of the window width
 window.addEventListener("DOMContentLoaded", () => {
   togglePanelIcons();
@@ -22,3 +23,12 @@ window.addEventListener("resize", () => {
 
 // Toggle the Panel at click on panel button
 togglePanel();
+
+
+// Start the database
+
+todoListDB();
+
+// Start UI
+
+init();
