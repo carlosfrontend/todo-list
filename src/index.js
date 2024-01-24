@@ -1,34 +1,57 @@
-import "./styles/main.css";
-import logoImg from "./img/logo.svg";
-import togglePanelIcons from "./UI/Panel/togglePanelIcons";
-import { togglePanel } from "./UI/Panel/togglePanel";
-import todoListDB from "./DB/todoListDB";
-import init from "./init";
+import createNewProject from "./Logic/createNewProject";
+import createNewTodo from "./Logic/createNewTodo";
+import myProjects from "./Logic/myProjects";
+import myTodos from "./Logic/myTodos";
+import updateStorage from "./Logic/updateStorage";
+import Project from "./Models/Project";
+import Todo from "./Models/Todo";
+import initUI from "./initUI";
 
-// Injects the main Logo
-const myLogo = document.querySelector(".logo");
-myLogo.src = logoImg;
-myLogo.alt = "Todo List Logo";
+updateStorage(); // Update Storage to []
 
-const toggPanelBtn = document.querySelector("#toggPanelBtn");
+// Starts UI
+initUI();
 
-// Change the sidebar open and close icons when the DOM is loaded in function of the window width
-window.addEventListener("DOMContentLoaded", () => {
-  togglePanelIcons();
-});
-// Change the sidebar open and close icons when the window is resized in function of the window width
-window.addEventListener("resize", () => {
-  togglePanelIcons();
-});
+// Projects
 
-// Toggle the Panel at click on panel button
-togglePanel();
+// Set a default Project
+const defaultProject = createNewProject(new Project("Default Project"));
+/* const project1 = createNewProject(new Project("Study"));
+const project2 = createNewProject(new Project("Work"));
+// Tasks
+
+const task1 = createNewTodo(
+  new Todo(
+    "My first todo",
+    "This is a todo",
+    new Date("2025-10-2"),
+    "low",
+    "Study"
+  )
+);
+const task2 = createNewTodo(
+  new Todo("Other todo", "My second todo", new Date("2024-1-30"), "high")
+);
+
+const task3 = createNewTodo(
+  new Todo(
+    "Estudiar matemáticas",
+    "Debo estudiar para el examen",
+    new Date("2024-3-15"),
+    "medium",
+    "Study"
+  )
+);
+
+const task4 = createNewTodo(new Todo('Levantarme temprano', 'Debo ir al trabajo', new Date('2024-1-24'),'high', 'Work'))
+
+defaultProject.setTodos(myTodos);
+project1.setTodos(myTodos);
+project2.setTodos(myTodos);
 
 
-// Start the database
 
-todoListDB();
+console.log(myTodos);
+console.log(myProjects); */
 
-// Start UI
-
-init();
+updateStorage() // Update storage with projects and todos
