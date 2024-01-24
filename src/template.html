@@ -49,8 +49,13 @@
         <option value="high">High</option>
       </select>
       <label for="notes">Notes</label>
-      <textarea name="notes" id="notes" required maxlength="68" title="Maximum Of 30 Characters"></textarea>
-      <label for="project">Project</label>
+      <textarea
+        name="notes"
+        id="notes"
+        required
+        maxlength="68"
+        title="Maximum Of 30 Characters"
+      ></textarea>
       <select name="project" id="project">
         <option selected value="Inbox">Inbox</option>
       </select>
@@ -69,6 +74,7 @@
       <input
         type="text"
         id="name"
+        autocomplete="off"
         placeholder="Project Name"
         required
         maxlength="14"
@@ -92,35 +98,35 @@
       </div>
       <div class="tasks-box">
         <nav class="tasks-menu">
-          <div class="add">
+          <button type="button" class="add">
             <span class="material-symbols-rounded list-add-icon notranslate">
               list_alt_add </span
             ><span class="add-task-txt">Add A Todo</span>
-          </div>
-          <div class="menu-element">
+          </button>
+          <button type="button" class="menu-element">
             <span class="material-symbols-rounded menu-icon notranslate">
               notification_multiple </span
             ><span class="menu-txt">Inbox</span>
             <span class="counter">1</span>
-          </div>
-          <div class="menu-element">
+          </button>
+          <button type="button" class="menu-element">
             <span class="material-symbols-rounded menu-icon notranslate">
               calendar_today </span
             ><span class="menu-txt">Today</span>
             <span class="counter">1</span>
-          </div>
-          <div class="menu-element">
+          </button>
+          <button type="button" class="menu-element">
             <span class="material-symbols-rounded menu-icon notranslate">
               event </span
             ><span class="menu-txt">Tomorrow</span>
             <span class="counter">1</span>
-          </div>
-          <div class="menu-element">
+          </button>
+          <button type="button" class="menu-element">
             <span class="material-symbols-rounded menu-icon notranslate">
               date_range </span
             ><span class="menu-txt">Next</span>
             <span class="counter">1</span>
-          </div>
+          </button>
         </nav>
       </div>
       <nav class="projects-menu">
@@ -143,73 +149,30 @@
         </div>
       </nav>
       <div class="projects-box">
-        <div class="project-item">
+        <button type="button" class="project-item">
           <span class="material-symbols-rounded project-icon notranslate"
             >folder</span
           ><span class="project-txt">Sample Project</span>
           <span class="counter">1</span>
-        </div>
-        <div class="project-item">
+        </button>
+        <button type="button" class="project-item">
           <span class="material-symbols-rounded project-icon notranslate"
             >folder</span
           ><span class="project-txt">Sample Project</span>
           <span class="counter">1</span>
-        </div>
-        <div class="project-item">
+        </button>
+        <button type="button" class="project-item">
           <span class="material-symbols-rounded project-icon notranslate"
             >folder</span
           ><span class="project-txt">Sample Project</span>
           <span class="counter">1</span>
-        </div>
-        <div class="project-item">
+        </button>
+        <button type="button" class="project-item">
           <span class="material-symbols-rounded project-icon notranslate"
             >folder</span
           ><span class="project-txt">Sample Project</span>
           <span class="counter">1</span>
-        </div>
-        <div class="project-item">
-          <span class="material-symbols-rounded project-icon notranslate"
-            >folder</span
-          ><span class="project-txt">Sample Project</span>
-          <span class="counter">1</span>
-        </div>
-        <div class="project-item">
-          <span class="material-symbols-rounded project-icon notranslate"
-            >folder</span
-          ><span class="project-txt">Sample Project</span>
-          <span class="counter">1</span>
-        </div>
-        <div class="project-item">
-          <span class="material-symbols-rounded project-icon notranslate"
-            >folder</span
-          ><span class="project-txt">Sample Project</span>
-          <span class="counter">1</span>
-        </div>
-        <div class="project-item">
-          <span class="material-symbols-rounded project-icon notranslate"
-            >folder</span
-          ><span class="project-txt">Sample Project</span>
-          <span class="counter">1</span>
-        </div>
-        <div class="project-item">
-          <span class="material-symbols-rounded project-icon notranslate"
-            >folder</span
-          ><span class="project-txt">Sample Project</span>
-          <span class="counter">1</span>
-        </div>
-
-        <div class="project-item">
-          <span class="material-symbols-rounded project-icon notranslate"
-            >folder</span
-          ><span class="project-txt">Sample Project</span>
-          <span class="counter">1</span>
-        </div>
-        <div class="project-item">
-          <span class="material-symbols-rounded project-icon notranslate"
-            >folder</span
-          ><span class="project-txt">Sample Project</span>
-          <span class="counter">1</span>
-        </div>
+        </button>
       </div>
     </aside>
     <div class="main" id="main">

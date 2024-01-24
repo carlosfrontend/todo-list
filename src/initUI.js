@@ -7,6 +7,7 @@ import toggleAddTaskDialog from "./UI/Dialog/toggleAddTaskDialog";
 import dropdown from "./UI/Dropdown/dropdown";
 import toggleAddProjectDialog from "./UI/Dropdown/toggleAddProjectDialog";
 import resetCalendar from "./UI/DateLocal/resetCalendar";
+import toggleFolderIcon from "./UI/Dropdown/toggleFolderIcon";
 
 const initUI = () => {
   const main = document.querySelector(".main");
@@ -26,6 +27,8 @@ const initUI = () => {
     toggleAddProjectDialog();
     // Set the default date of the date-local field at today as min property
     resetCalendar();
+    // Change folder icons to opens or closes when user click it
+    toggleFolderIcon();
   });
 
   // Change the sidebar open and close icons when the window is resized in function of the window width

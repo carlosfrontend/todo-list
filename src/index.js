@@ -15,8 +15,8 @@ initUI();
 // Projects
 
 // Set a default Project
-const defaultProject = createNewProject(new Project("Default Project"));
-/* const project1 = createNewProject(new Project("Study"));
+const defaultProject = createNewProject(new Project("Inbox"));
+const project1 = createNewProject(new Project("Study"));
 const project2 = createNewProject(new Project("Work"));
 // Tasks
 
@@ -26,11 +26,12 @@ const task1 = createNewTodo(
     "This is a todo",
     new Date("2025-10-2"),
     "low",
+    'Some notes',
     "Study"
   )
 );
 const task2 = createNewTodo(
-  new Todo("Other todo", "My second todo", new Date("2024-1-30"), "high")
+  new Todo("Other todo", "My second todo", new Date("2024-1-30"), "high",'Some notes')
 );
 
 const task3 = createNewTodo(
@@ -39,11 +40,12 @@ const task3 = createNewTodo(
     "Debo estudiar para el examen",
     new Date("2024-3-15"),
     "medium",
+    'Some notes',
     "Study"
   )
 );
 
-const task4 = createNewTodo(new Todo('Levantarme temprano', 'Debo ir al trabajo', new Date('2024-1-24'),'high', 'Work'))
+const task4 = createNewTodo(new Todo('Levantarme temprano', 'Debo ir al trabajo', new Date('2024-1-24'),'high','Some notes', 'Work'))
 
 defaultProject.setTodos(myTodos);
 project1.setTodos(myTodos);
@@ -52,6 +54,6 @@ project2.setTodos(myTodos);
 
 
 console.log(myTodos);
-console.log(myProjects); */
+console.log(myProjects);
 
 updateStorage() // Update storage with projects and todos
