@@ -220,6 +220,7 @@ button.togg-panel {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 0;
   .title {
     color: dodgerblue;
     font-weight: bold;
@@ -356,5 +357,9 @@ select {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+  }
+
+  .header {
+    gap: 1em;
   }
 }
