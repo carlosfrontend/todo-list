@@ -1,15 +1,16 @@
-import myProjects from "../../Logic/myProjects";
 import { format, isToday } from "date-fns";
+import getProyectsAndTodosFromLocalStorage from "../../Logic/getProyectsAndTodosFromLocalStorage";
 
 const viewTodayCounter = () => {
-  const today = [];
+  const todayTodos = [];
   const todayCounter = document.querySelector("#todayCounter");
-  myProjects.map((project) =>
-    project.todos.filter((todo, index) => {
+  todayCounter.textContent = 0;
+  getProyectsAndTodosFromLocalStorage().map((project) =>
+    project.todos.filter((todo) => {
       const due = format(todo.dueDate, "yyyy-MM-d");
       if (isToday(due)) {
-        today.push(todo);
-        todayCounter.textContent = today.length;
+        todayTodos.push(todo);
+        todayCounter.textContent = todayTodos.length;
       }
     })
   );

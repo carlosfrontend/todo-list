@@ -8,6 +8,9 @@ import dropdown from "./UI/Dropdown/dropdown";
 import toggleAddProjectDialog from "./UI/Dropdown/toggleAddProjectDialog";
 import resetCalendar from "./UI/DateLocal/resetCalendar";
 import toggleFolderIcon from "./UI/Dropdown/toggleFolderIcon";
+import getProyectsAndTodosFromLocalStorage from "./Logic/getProyectsAndTodosFromLocalStorage";
+import showsAllCounters from "./UI/Panel/showsAllCounters";
+import createDefaultProject from "./Logic/createDefaultProject";
 
 const initUI = () => {
   const main = document.querySelector(".main");
@@ -17,11 +20,15 @@ const initUI = () => {
   myLogo.src = logoImg;
   myLogo.alt = "Todo List Logo";
 
- 
   window.addEventListener("DOMContentLoaded", () => {
-     // Change the sidebar open and close icons when the DOM is loaded in function of the window width
+    // Creates a Default "Inbox" Project
+    createDefaultProject();
+    getProyectsAndTodosFromLocalStorage();
+    // Actives all counters
+    showsAllCounters();
+    // Change the sidebar open and close icons when the DOM is loaded in function of the window width
     togglePanelIcons();
-     // Toggle Projects dropdown menu
+    // Toggle Projects dropdown menu
     dropdown();
     // Open the add project dialog
     toggleAddProjectDialog();

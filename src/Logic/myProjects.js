@@ -1,3 +1,2 @@
-const myProjects = [];
-
+let myProjects = [];
 export default myProjects;
