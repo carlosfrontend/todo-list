@@ -26,8 +26,8 @@
         id="title"
         placeholder="Todo Title"
         required
-        maxlength="20"
-        title="A maximum Of 20 Characters"
+        maxlength="45"
+        title="A maximum Of 45 Characters"
       />
       <label for="description">Description</label>
       <input
@@ -36,8 +36,8 @@
         id="description"
         placeholder="Todo Description"
         required
-        maxlength="20"
-        title="A maximum Of 20 Characters"
+        maxlength="45"
+        title="A maximum Of 45 Characters"
       />
       <label for="dueDate">Due Date</label>
       <input type="datetime-local" name="dueDate" id="dueDate" required />
@@ -53,8 +53,8 @@
         name="notes"
         id="notes"
         required
-        maxlength="68"
-        title="Maximum Of 30 Characters"
+        maxlength="100"
+        title="Maximum Of 100 Characters"
       ></textarea>
       <select name="project" id="project">
         <option selected value="Inbox">Inbox</option>
@@ -107,25 +107,25 @@
             <span class="material-symbols-rounded menu-icon notranslate">
               notification_multiple </span
             ><span class="menu-txt">Inbox</span>
-            <span class="counter">1</span>
+            <span id="inboxCounter" class="counter"></span>
           </button>
           <button type="button" class="menu-element">
             <span class="material-symbols-rounded menu-icon notranslate">
               calendar_today </span
             ><span class="menu-txt">Today</span>
-            <span class="counter">1</span>
+            <span id="todayCounter" class="counter"></span>
           </button>
           <button type="button" class="menu-element">
             <span class="material-symbols-rounded menu-icon notranslate">
               event </span
             ><span class="menu-txt">Tomorrow</span>
-            <span class="counter">1</span>
+            <span id="tomorrowCounter" class="counter"></span>
           </button>
           <button type="button" class="menu-element">
             <span class="material-symbols-rounded menu-icon notranslate">
               date_range </span
             ><span class="menu-txt">Next</span>
-            <span class="counter">1</span>
+            <span id="nextCounter" class="counter"></span>
           </button>
         </nav>
       </div>
@@ -148,32 +148,7 @@
           </div>
         </div>
       </nav>
-      <div class="projects-box">
-        <button type="button" class="project-item">
-          <span class="material-symbols-rounded project-icon notranslate"
-            >folder</span
-          ><span class="project-txt">Sample Project</span>
-          <span class="counter">1</span>
-        </button>
-        <button type="button" class="project-item">
-          <span class="material-symbols-rounded project-icon notranslate"
-            >folder</span
-          ><span class="project-txt">Sample Project</span>
-          <span class="counter">1</span>
-        </button>
-        <button type="button" class="project-item">
-          <span class="material-symbols-rounded project-icon notranslate"
-            >folder</span
-          ><span class="project-txt">Sample Project</span>
-          <span class="counter">1</span>
-        </button>
-        <button type="button" class="project-item">
-          <span class="material-symbols-rounded project-icon notranslate"
-            >folder</span
-          ><span class="project-txt">Sample Project</span>
-          <span class="counter">1</span>
-        </button>
-      </div>
+      <div class="projects-box"></div>
     </aside>
     <div class="main" id="main">
       <div class="togg-btn-container">

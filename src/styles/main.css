@@ -206,8 +206,8 @@ button.togg-panel {
 }
 
 .counter {
-  height: 20px;
-  width: 20px;
+  height: 24px;
+  width: 24px;
   font-size: 10px;
   font-weight: 900;
   padding: 0.1rem;
@@ -319,6 +319,19 @@ select {
   cursor: pointer;
   border: none;
   border-radius: 8px;
+}
+
+#delete-proj-btn{
+  color:#242424ba;
+  position: absolute;
+  right: 2em;
+  font-size: 1.6em;
+  display: flex;
+  color: rgb(228, 14, 68);
+}
+
+#delete-proj-btn:active{
+  transform: scale(1.2);
 }
 
 @media screen and (max-width: 700px) {
