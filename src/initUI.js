@@ -8,10 +8,12 @@ import dropdown from "./UI/Dropdown/dropdown";
 import toggleAddProjectDialog from "./UI/Dropdown/toggleAddProjectDialog";
 import resetCalendar from "./UI/DateLocal/resetCalendar";
 import toggleFolderIcon from "./UI/Dropdown/toggleFolderIcon";
-import getProyectsAndTodosFromLocalStorage from "./Logic/getProyectsAndTodosFromLocalStorage";
 import showsAllCounters from "./UI/Panel/showsAllCounters";
-import createDefaultProject from "./Logic/createDefaultProject";
 import viewAllProjects from "./UI/Views/viewAllProjects";
+import addNewProject from "./UI/Views/addNewProject";
+import saveProjectsAndTodosToLocalStorage from "./Logic/saveProjectsAndTodosToLocalStorage";
+import myProjects from "./Logic/myProjects";
+import createDefaultProject from "./Logic/createDefaultProject";
 
 const initUI = () => {
   const main = document.querySelector(".main");
@@ -20,11 +22,9 @@ const initUI = () => {
   // Injects the main Logo
   myLogo.src = logoImg;
   myLogo.alt = "Todo List Logo";
-
+  
   window.addEventListener("DOMContentLoaded", () => {
-    // Creates a Default "Inbox" Project
-    createDefaultProject();
-    getProyectsAndTodosFromLocalStorage();
+    viewAllProjects()
     // Actives all counters
     showsAllCounters();
     // Change the sidebar open and close icons when the DOM is loaded in function of the window width
@@ -37,7 +37,6 @@ const initUI = () => {
     resetCalendar();
     // Change folder icons to opens or closes when user click it
     toggleFolderIcon();
-    viewAllProjects();
   });
 
   // Change the sidebar open and close icons when the window is resized in function of the window width

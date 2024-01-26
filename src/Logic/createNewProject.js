@@ -4,8 +4,8 @@ import saveProjectsAndTodosToLocalStorage from "./saveProjectsAndTodosToLocalSto
 
 const createNewProject = function (project) {
   myProjects.push(project);
-  myProjects.map(proj => proj.setTodos(myTodos)) // Adds todos to every project
-  saveProjectsAndTodosToLocalStorage();
+  myProjects.map((proj) => proj.setTodos(myTodos)); // Adds todos to every project
+  saveProjectsAndTodosToLocalStorage(myProjects);
   return project;
 };
 

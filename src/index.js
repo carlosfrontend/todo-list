@@ -4,10 +4,14 @@ import Todo from "./Models/Todo";
 import Project from "./Models/Project";
 import myProjects from "./Logic/myProjects";
 import initUI from "./initUI";
+import { add } from "date-fns";
+import addNewProject from "./UI/Views/addNewProject";
+import viewAllProjects from "./UI/Views/viewAllProjects";
+import saveProjectsAndTodosToLocalStorage from "./Logic/saveProjectsAndTodosToLocalStorage";
+import createDefaultProject from "./Logic/createDefaultProject";
 
 // Starts UI
 initUI();
-
 
 /* const todo1 = createNewTodo(
   new Todo(
@@ -17,13 +21,15 @@ initUI();
     "high",
     "Some notes",
     'Study'
-  )
-); */
+    )
+    ); */
 
 /* const todo2 = createNewTodo(new Todo(
-    "Second todo",
-    'Other Description',
-    "2024-1-26",
-    'low',
-)) */
-// const proj1 = createNewProject(new Project("Study"));
+      "Second todo",
+      'Other Description',
+      "2024-1-26",
+      'low',
+      )) */
+
+createDefaultProject();
+const newProject = addNewProject();

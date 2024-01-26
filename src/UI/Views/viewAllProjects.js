@@ -1,9 +1,10 @@
 import getProyectsAndTodosFromLocalStorage from "../../Logic/getProyectsAndTodosFromLocalStorage";
+import myProjects from "../../Logic/myProjects";
 
 const viewAllProjects = () => {
   const projectBox = document.querySelector(".projects-box");
 
-  getProyectsAndTodosFromLocalStorage().map((proj) => {
+  getProyectsAndTodosFromLocalStorage(myProjects).map((proj) => {
     const projectItem = document.createElement("button");
     const projectText = document.createElement("span");
     const folderIcon = document.createElement("span");
@@ -29,6 +30,9 @@ const viewAllProjects = () => {
     projectItem.appendChild(folderIcon);
     projectItem.appendChild(projectText);
     projectItem.appendChild(deleteProjBtn);
+    if(getProyectsAndTodosFromLocalStorage().filter(el  => el.name === 'Inbox')){
+      deleteProjBtn.remove()
+    }
     projectItem.appendChild(counter);
     projectItem.setAttribute("type", "button");
     projectItem.classList.add("project-item");

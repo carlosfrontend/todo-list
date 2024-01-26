@@ -1,8 +1,5 @@
-import myProjects from "./myProjects";
-import myTodos from './myTodos'
-
-const saveProjectsAndTodosToLocalStorage = () => {
-    const todoList = localStorage.setItem("TodoList", JSON.stringify(myProjects));
+const saveProjectsAndTodosToLocalStorage = (projects) => {
+    const todoList = localStorage.setItem("TodoList", JSON.stringify(projects));
 }
 
 export default saveProjectsAndTodosToLocalStorage;
