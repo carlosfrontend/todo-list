@@ -9,7 +9,7 @@ import initUI from "./initUI";
 initUI();
 
 
-const todo1 = createNewTodo(
+/* const todo1 = createNewTodo(
   new Todo(
     "First todo",
     "Some description",
@@ -18,12 +18,12 @@ const todo1 = createNewTodo(
     "Some notes",
     'Study'
   )
-);
+); */
 
-const todo2 = createNewTodo(new Todo(
+/* const todo2 = createNewTodo(new Todo(
     "Second todo",
     'Other Description',
     "2024-1-26",
     'low',
-))
-const proj1 = createNewProject(new Project("Study"));
+)) */
+// const proj1 = createNewProject(new Project("Study"));

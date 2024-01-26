@@ -11,6 +11,7 @@ import toggleFolderIcon from "./UI/Dropdown/toggleFolderIcon";
 import getProyectsAndTodosFromLocalStorage from "./Logic/getProyectsAndTodosFromLocalStorage";
 import showsAllCounters from "./UI/Panel/showsAllCounters";
 import createDefaultProject from "./Logic/createDefaultProject";
+import viewAllProjects from "./UI/Views/viewAllProjects";
 
 const initUI = () => {
   const main = document.querySelector(".main");
@@ -36,6 +37,7 @@ const initUI = () => {
     resetCalendar();
     // Change folder icons to opens or closes when user click it
     toggleFolderIcon();
+    viewAllProjects();
   });
 
   // Change the sidebar open and close icons when the window is resized in function of the window width
