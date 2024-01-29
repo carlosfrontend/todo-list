@@ -6,7 +6,9 @@ const toggleFolderIcon = () => {
     item.addEventListener("focus", () => {
       item.children[0].textContent = "folder_open";
       if (window.innerWidth <= 700) {
-        hidesPanel();
+        setTimeout(() => {
+          hidesPanel();
+        }, 500);
       }
     })
   );
