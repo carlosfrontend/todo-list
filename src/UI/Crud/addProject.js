@@ -10,7 +10,6 @@ const addProject = () => {
     parsed.push(newProject);
     localStorage.setItem("todolist", JSON.stringify(parsed));
     addProjectForm.reset();
-    showProject(newProject);
   });
 };
 

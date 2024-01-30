@@ -10,6 +10,7 @@ import resetCalendar from "./UI/DateLocal/resetCalendar";
 import toggleFolderIcon from "./UI/Dropdown/toggleFolderIcon";
 import setDefaultProject from "./Logic/setDefaultProject";
 import addProject from "./UI/Crud/addProject";
+import showProject from "./UI/Views/showProject";
 
 const initUI = () => {
   const main = document.querySelector(".main");
@@ -41,7 +42,11 @@ const initUI = () => {
  
   setDefaultProject();
   addProject();
-
+  if(JSON.parse(localStorage.getItem('todolist')) !== null){
+    const parsed = JSON.parse(localStorage.getItem('todolist'));
+    parsed.filter(proj => proj.name !== 'Inbox').map(el => showProject(el))
+    
+  }
 };
 
 export default initUI;

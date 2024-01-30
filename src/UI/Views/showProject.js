@@ -1,4 +1,3 @@
-import toggleFolderIcon from "../Dropdown/toggleFolderIcon";
 const showProject = (project) => {
   const projectsBox = document.querySelector(".projects-box");
   const element = document.createElement("button");
