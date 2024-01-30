@@ -2,6 +2,7 @@ import { Notify } from "notiflix/build/notiflix-notify-aio";
 import Project from "../../Models/Project";
 import showProject from "../Views/showProject";
 import hidesPanel from "../Panel/hidesPanel";
+import deleteProject from "./deleteProject";
 const addProject = () => {
   const addProjectForm = document.querySelector("#add-project-form");
   const name = document.querySelector("#name");
@@ -13,6 +14,7 @@ const addProject = () => {
     localStorage.setItem("todolist", JSON.stringify(parsed));
     addProjectForm.reset();
     showProject(newProject);
+    deleteProject() 
     if(window.innerWidth <= 700){
       setTimeout(() => {
         hidesPanel();

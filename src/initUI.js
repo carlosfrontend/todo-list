@@ -11,7 +11,6 @@ import toggleFolderIcon from "./UI/Dropdown/toggleFolderIcon";
 import setDefaultProject from "./Logic/setDefaultProject";
 import addProject from "./UI/Crud/addProject";
 import showProject from "./UI/Views/showProject";
-import deleteProject from "./UI/Crud/deleteProject";
 
 const initUI = () => {
   const main = document.querySelector(".main");
@@ -45,9 +44,8 @@ const initUI = () => {
   addProject();
   if(JSON.parse(localStorage.getItem('todolist')) !== null){
     const parsed = JSON.parse(localStorage.getItem('todolist'));
-    parsed.filter(proj => proj.name !== 'Inbox').map(el => showProject(el))
-  }  
-  deleteProject();
+    parsed.filter(proj => proj.name !== 'Inbox').map(el => {showProject(el)})
+  }
 };
 
 export default initUI;
