@@ -7,6 +7,10 @@ const showProject = (project) => {
   const projectText = document.createElement("span");
   const deleteButton = document.createElement("span");
   const counter = document.createElement("span");
+  const projectName = document.querySelector("#project_name");
+  const option = document.createElement("option");
+  option.setAttribute("value", project.name);
+  option.textContent = project.name;
   element.classList.add("project-item");
   element.setAttribute("id", project.id);
   folderIcon.classList.add(
@@ -30,6 +34,7 @@ const showProject = (project) => {
   element.appendChild(deleteButton);
   element.appendChild(counter);
   projectsBox.appendChild(element);
+  projectName.appendChild(option)
   toggleFolderIcon();
 };
 
