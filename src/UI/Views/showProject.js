@@ -1,3 +1,5 @@
+import toggleFolderIcon from "../Dropdown/toggleFolderIcon";
+
 const showProject = (project) => {
   const projectsBox = document.querySelector(".projects-box");
   const element = document.createElement("button");
@@ -28,6 +30,7 @@ const showProject = (project) => {
   element.appendChild(deleteButton);
   element.appendChild(counter);
   projectsBox.appendChild(element);
+  toggleFolderIcon();
 };
 
 export default showProject;

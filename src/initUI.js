@@ -45,7 +45,6 @@ const initUI = () => {
   if(JSON.parse(localStorage.getItem('todolist')) !== null){
     const parsed = JSON.parse(localStorage.getItem('todolist'));
     parsed.filter(proj => proj.name !== 'Inbox').map(el => showProject(el))
-    
   }
 };
 
