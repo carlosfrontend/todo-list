@@ -1,8 +1,6 @@
-import { Notify } from "notiflix/build/notiflix-notify-aio";
 import Project from "../../Models/Project";
-import showProject from "../Views/showProject";
-import hidesPanel from "../Panel/hidesPanel";
-import deleteProject from "./deleteProject";
+import showProjectInPanel from "../Views/showProjectInPanel";
+
 const addProject = () => {
   const addProjectForm = document.querySelector("#add-project-form");
   const name = document.querySelector("#name");
@@ -13,16 +11,7 @@ const addProject = () => {
     parsed.push(newProject);
     localStorage.setItem("todolist", JSON.stringify(parsed));
     addProjectForm.reset();
-    showProject(newProject);
-    deleteProject() 
-    if(window.innerWidth <= 700){
-      setTimeout(() => {
-        hidesPanel();
-        Notify.success(`Project ${newProject.name.toUpperCase()} successfully added!`);
-      }, 800);
-    }else{
-      Notify.success(`Project ${newProject.name.toUpperCase()} successfully added!`);
-    }
+    showProjectInPanel(newProject);
   });
 };
 

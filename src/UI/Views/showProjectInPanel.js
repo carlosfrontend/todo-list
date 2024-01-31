@@ -1,6 +1,4 @@
-import toggleFolderIcon from "../Dropdown/toggleFolderIcon";
-
-const showProject = (project) => {
+const showProjectInPanel = (project) => {
   const projectsBox = document.querySelector(".projects-box");
   const element = document.createElement("button");
   const folderIcon = document.createElement("span");
@@ -35,7 +33,6 @@ const showProject = (project) => {
   element.appendChild(counter);
   projectsBox.appendChild(element);
   projectName.appendChild(option)
-  toggleFolderIcon();
 };
 
-export default showProject;
+export default showProjectInPanel;

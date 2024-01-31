@@ -7,7 +7,6 @@ const hidesPanel = () => {
   sidebar.style.display = "none";
   main.style.gridColumn = "1/3";
   toggPanelBtn.textContent = "menu";
-  toggPanelBtn.classList.replace('menu-open', 'menu-close');
 };
 
 export default hidesPanel;

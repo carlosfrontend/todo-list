@@ -1,21 +1,23 @@
-function handlePanel() {
+import hidesPanel from "./hidesPanel";
+import showsPanel from "./showsPanel";
+
+function togglePanel() {
   const sidebar = document.querySelector(".sidebar");
   const main = document.querySelector(".main");
   const toggPanelBtn = document.querySelector("#toggPanelBtn");
-  toggPanelBtn.classList.toggle("menu-open");
-  toggPanelBtn.classList.toggle("menu-close");
+  /*  toggPanelBtn.classList.toggle("menu-open");
+  toggPanelBtn.classList.toggle("menu-close"); */
   toggPanelBtn.textContent === "menu_open"
     ? (toggPanelBtn.textContent = "menu")
     : (toggPanelBtn.textContent = "menu_open");
+
   if (toggPanelBtn.textContent === "menu_open") {
-    sidebar.style.display = "grid";
-    main.style.gridColumn = "2/3";
+    toggPanelBtn.textContent = "menu_open";
+    showsPanel();
   } else {
-    sidebar.style.display = "none";
-    main.style.gridColumn = "1/3";
+    toggPanelBtn.textContent = "menu";
+    hidesPanel();
   }
 }
 
-export function togglePanel() {
-  toggPanelBtn.addEventListener("click", handlePanel);
-}
+export default togglePanel;
