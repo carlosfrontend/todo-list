@@ -1,19 +1,20 @@
+import getDataFromLocalStorage from "../../LocalStorage/getDataFromLocalStorage";
+import saveToLocalStorage from "../../LocalStorage/saveToLocalStorage";
+
 const deleteProject = () => {
   document.querySelector(".projects-box").addEventListener("click", (e) => {
     const projectName = document.querySelector("#project_name");
     if (e.target.textContent !== "delete") return;
     // Delete projects from localStorage
-    const parsed = JSON.parse(localStorage.getItem("todolist"));
+    const parsed = getDataFromLocalStorage();
     const myHtmlItem = e.target.closest(".project-item");
     const id = myHtmlItem.id;
     parsed.map((el, index) => {
       if (el.id === id) {
         parsed.splice(index, 1);
-        localStorage.setItem("todolist", JSON.stringify(parsed));
+        saveToLocalStorage(parsed)
         myHtmlItem.remove();
-        const projectsAfterRemove = JSON.parse(
-          localStorage.getItem("todolist")
-        );
+        const projectsAfterRemove = getDataFromLocalStorage();
         projectName.innerHTML = "";
         projectsAfterRemove.map((el) => {
           const option = document.createElement("option");

@@ -11,6 +11,7 @@ import setDefaultProject from "./Logic/setDefaultProject";
 import addProject from "./UI/Crud/addProject";
 import deleteProject from "./UI/Crud/deleteProject";
 import showProjectInPanel from "./UI/Views/showProjectInPanel";
+import getDataFromLocalStorage from "./LocalStorage/getDataFromLocalStorage";
 
 const initUI = () => {
   //When the page is loaded set the default project Inbox into localStorage
@@ -26,14 +27,14 @@ const initUI = () => {
     // Change the sidebar open and close icons when the DOM is loaded in function of the window width
     togglePanelIcons();
   });
-  if(window.innerWidth <= 700){
-    document.querySelector('#toggPanelBtn').textContent = 'menu';
-  }else{
-    document.querySelector('#toggPanelBtn').textContent = 'menu_open';
+  if (window.innerWidth <= 700) {
+    document.querySelector("#toggPanelBtn").textContent = "menu";
+  } else {
+    document.querySelector("#toggPanelBtn").textContent = "menu_open";
   }
   document.addEventListener("click", (e) => {
     // Enable togglePanel at click on button
-    if(e.target.closest('#toggPanelBtn')){
+    if (e.target.closest("#toggPanelBtn")) {
       togglePanel();
     }
     if (e.target.id === "collapseBtn") {
@@ -49,15 +50,19 @@ const initUI = () => {
       resetCalendar(e);
     }
     // Opens and closes the add project dialog
-    if (e.target.closest("#addProjBtn")){
+    if (e.target.closest("#addProjBtn")) {
       toggleAddProjectDialog();
     }
   });
   addProject();
 
-  if(JSON.parse(localStorage.getItem('todolist')) !== null){
-    const parsed = JSON.parse(localStorage.getItem('todolist'));
-    parsed.filter(proj => proj.name !== 'Inbox').map(el => {showProjectInPanel(el)})
+  if (getDataFromLocalStorage() !== null) {
+    const parsed = getDataFromLocalStorage();
+    parsed
+      .filter((proj) => proj.name !== "Inbox")
+      .map((el) => {
+        showProjectInPanel(el);
+      });
   }
   deleteProject();
 };

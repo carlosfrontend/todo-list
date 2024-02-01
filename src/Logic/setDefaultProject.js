@@ -1,13 +1,15 @@
 import Project from "../Models/Project";
+import getDataFromLocalStorage from "../LocalStorage/getDataFromLocalStorage";
+import saveToLocalStorage from "../LocalStorage/saveToLocalStorage";
+
 const setDefaultProject = () => {
   // Set default project in locaStorage
-
-  if (JSON.parse(localStorage.getItem("todolist")) === null) {
-    localStorage.setItem("todolist", JSON.stringify([]));
+  if (getDataFromLocalStorage() === null) {
+    saveToLocalStorage([]);
     const defaultproject = new Project("Inbox");
-    const parsed = JSON.parse(localStorage.getItem("todolist"));
+    const parsed = getDataFromLocalStorage();
     parsed.push(defaultproject);
-    localStorage.setItem("todolist", JSON.stringify(parsed));
+    saveToLocalStorage(parsed);
   }
 };
 

@@ -1,3 +1,5 @@
+import getDataFromLocalStorage from "../../LocalStorage/getDataFromLocalStorage";
+import saveToLocalStorage from "../../LocalStorage/saveToLocalStorage";
 import Project from "../../Models/Project";
 import showProjectInPanel from "../Views/showProjectInPanel";
 
@@ -7,9 +9,9 @@ const addProject = () => {
   // Adds new Projects to localStorage
   addProjectForm.addEventListener("submit", () => {
     const newProject = new Project(name.value);
-    const parsed = JSON.parse(localStorage.getItem("todolist"));
+    const parsed = getDataFromLocalStorage();
     parsed.push(newProject);
-    localStorage.setItem("todolist", JSON.stringify(parsed));
+    saveToLocalStorage(parsed);
     addProjectForm.reset();
     showProjectInPanel(newProject);
   });
