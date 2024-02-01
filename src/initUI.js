@@ -27,9 +27,9 @@ const initUI = () => {
     togglePanelIcons();
   });
   if(window.innerWidth <= 700){
-    document.querySelector('#toggPanelBtn').textContent = 'menu'
+    document.querySelector('#toggPanelBtn').textContent = 'menu';
   }else{
-    document.querySelector('#toggPanelBtn').textContent = 'menu_open'
+    document.querySelector('#toggPanelBtn').textContent = 'menu_open';
   }
   document.addEventListener("click", (e) => {
     // Enable togglePanel at click on button
@@ -49,11 +49,12 @@ const initUI = () => {
       resetCalendar(e);
     }
     // Opens and closes the add project dialog
-    if (e.target.id === "addProjBtn") {
+    if (e.target.closest("#addProjBtn")){
       toggleAddProjectDialog();
     }
   });
   addProject();
+
   if(JSON.parse(localStorage.getItem('todolist')) !== null){
     const parsed = JSON.parse(localStorage.getItem('todolist'));
     parsed.filter(proj => proj.name !== 'Inbox').map(el => {showProjectInPanel(el)})
