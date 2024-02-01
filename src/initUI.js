@@ -24,13 +24,17 @@ const initUI = () => {
   // Change the sidebar open and close icons when the window is resized in function of the window width
   window.addEventListener("resize", (e) => {
     // Change the sidebar open and close icons when the DOM is loaded in function of the window width
-    togglePanelIcons(e);
+    togglePanelIcons();
   });
-  
+  if(window.innerWidth <= 700){
+    document.querySelector('#toggPanelBtn').textContent = 'menu'
+  }else{
+    document.querySelector('#toggPanelBtn').textContent = 'menu_open'
+  }
   document.addEventListener("click", (e) => {
     // Enable togglePanel at click on button
     if(e.target.closest('#toggPanelBtn')){
-     togglePanel();
+      togglePanel();
     }
     if (e.target.id === "collapseBtn") {
       // Avtivate dropdown functionality for shows or hides projects in the projects box

@@ -5,7 +5,7 @@ import showsPanel from "./showsPanel";
 
 const togglePanelIcons = () => {
   const toggPanelBtn = document.querySelector("#toggPanelBtn");
-  if (window.innerWidth < 700) {
+  if (window.innerWidth <= 700) {
     toggPanelBtn.textContent = "menu";
     toggPanelBtn.classList.remove("menu-open");
     toggPanelBtn.classList.add("menu-close");
