@@ -3,8 +3,7 @@ import getDataFromLocalStorage from "../../LocalStorage/getDataFromLocalStorage"
 import saveToLocalStorage from "../../LocalStorage/saveToLocalStorage";
 const addTodo = () => {
   const todoForm = document.querySelector("#addForm");
-  todoForm.addEventListener("submit", (e) => {
-    e.preventDefault();
+  todoForm.addEventListener("submit", () => {
     const title = document.querySelector("#title");
     const description = document.querySelector("#description");
     const dueDate = document.querySelector("#dueDate");
@@ -24,7 +23,6 @@ const addTodo = () => {
       if (project.name === projectName.value) {
         project.todos.push(newTodo);
         saveToLocalStorage(todolist);
-        console.log(newTodo);
       }
     });
     todoForm.reset();
