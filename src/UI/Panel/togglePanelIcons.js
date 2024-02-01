@@ -1,8 +1,6 @@
 import hidesPanel from "./hidesPanel";
 import showsPanel from "./showsPanel";
 
-// Change the open and close panel icons depending on the width of the window
-
 const togglePanelIcons = () => {
   const toggPanelBtn = document.querySelector("#toggPanelBtn");
   if (window.innerWidth <= 700) {

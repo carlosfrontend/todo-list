@@ -12,26 +12,30 @@ import addProject from "./UI/Crud/addProject";
 import deleteProject from "./UI/Crud/deleteProject";
 import showProjectInPanel from "./UI/Views/showProjectInPanel";
 import getDataFromLocalStorage from "./LocalStorage/getDataFromLocalStorage";
+import addTodo from "./UI/Crud/addTodo";
 
 const initUI = () => {
-  //When the page is loaded set the default project Inbox into localStorage
+  // When the page is loaded set the default project Inbox into localStorage
   setDefaultProject();
   const main = document.querySelector(".main");
   const myLogo = document.querySelector(".logo");
-  // Injects the main Logo
+  // Inject the main Logo
   myLogo.src = logoImg;
   myLogo.alt = "Todo List Logo";
   main.appendChild(notYetTasks());
-  // Change the sidebar open and close icons when the window is resized in function of the window width
-  window.addEventListener("resize", (e) => {
-    // Change the sidebar open and close icons when the DOM is loaded in function of the window width
+  // Change the sidebar open and close icons when the document is loaded
+  window.addEventListener("DOMContentLoaded", () => {
+    if (window.innerWidth <= 700) {
+      document.querySelector("#toggPanelBtn").textContent = "menu";
+    } else {
+      document.querySelector("#toggPanelBtn").textContent = "menu_open";
+    }
+  });
+  window.addEventListener("resize", () => {
+    // Change the sidebar open and close icons when the window is resized in function of the window width
     togglePanelIcons();
   });
-  if (window.innerWidth <= 700) {
-    document.querySelector("#toggPanelBtn").textContent = "menu";
-  } else {
-    document.querySelector("#toggPanelBtn").textContent = "menu_open";
-  }
+
   document.addEventListener("click", (e) => {
     // Enable togglePanel at click on button
     if (e.target.closest("#toggPanelBtn")) {
@@ -49,11 +53,14 @@ const initUI = () => {
       // Set the default date of the date-local field at today as min property
       resetCalendar(e);
     }
-    // Opens and closes the add project dialog
+    // Open and close the add project dialog
     if (e.target.closest("#addProjBtn")) {
       toggleAddProjectDialog();
     }
   });
+  // Add Todo
+  addTodo();
+  // Add projects
   addProject();
 
   if (getDataFromLocalStorage() !== null) {
@@ -64,6 +71,9 @@ const initUI = () => {
         showProjectInPanel(el);
       });
   }
+
+  // Delete projects
+
   deleteProject();
 };
 
