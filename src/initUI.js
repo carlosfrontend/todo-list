@@ -1,6 +1,7 @@
-import notYetTasks from "./UI/Views/notYetTasks/notYetTasks";
+// import notYetTasks from "./UI/Views/notYetTasks/notYetTasks";
 import "./styles/main.css";
 import logoImg from "./img/logo.svg";
+import logoGh from "./img/github.svg";
 import togglePanelIcons from "./UI/Panel/togglePanelIcons";
 import togglePanel from "./UI/Panel/togglePanel";
 import toggleAddTodoDialog from "./UI/Dialog/toggleAddTodoDialog";
@@ -17,12 +18,13 @@ import addTodo from "./UI/Crud/addTodo";
 const initUI = () => {
   // When the page is loaded set the default project Inbox into localStorage
   setDefaultProject();
-  const main = document.querySelector(".main");
   const myLogo = document.querySelector(".logo");
-  // Inject the main Logo
+  const ghLogo = document.querySelector(".gh-logo");
+  // Inject the main Logo and footer logo
   myLogo.src = logoImg;
+  ghLogo.src = logoGh;
   myLogo.alt = "Todo List Logo";
-  main.appendChild(notYetTasks());
+  ghLogo.alt = "Github Logo"; 
   // Change the sidebar open and close icons when the document is loaded
   window.addEventListener("DOMContentLoaded", () => {
     if (window.innerWidth <= 700) {
@@ -58,7 +60,8 @@ const initUI = () => {
       toggleAddProjectDialog();
     }
   });
-  // Add Todo
+
+  // Add todo
   addTodo();
   // Add projects
   addProject();
