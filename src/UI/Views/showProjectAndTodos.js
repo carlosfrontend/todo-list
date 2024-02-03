@@ -53,7 +53,7 @@ const showProjectAndTodos = (proj) => {
     const projectNameTitle = document.createElement("div");
     projectNameTitle.classList.add("project-name-title");
     const projectLogo = document.createElement("span");
-    projectLogo.classList.add("material-symbols-rounded", "project-logo");
+    projectLogo.classList.add("material-symbols-rounded", "project-logo", "notranslate");
     projectLogo.textContent = "numbers";
     projectNameTitle.appendChild(projectLogo);
     const myProject = document.createElement("span");
@@ -64,7 +64,7 @@ const showProjectAndTodos = (proj) => {
     todoButtons.classList.add("todo-buttons");
     const editButton = document.createElement("button");
     const editLogo = document.createElement("span");
-    editLogo.classList.add("material-symbols-rounded", "edit-logo");
+    editLogo.classList.add("material-symbols-rounded", "edit-logo", "notranslate");
     editLogo.textContent = "edit";
     editButton.classList.add("edit-button");
     editButton.textContent = "Edit";
@@ -74,7 +74,7 @@ const showProjectAndTodos = (proj) => {
     deleteButton.classList.add("delete-button");
     deleteButton.textContent = "Delete";
     const deleteLogo = document.createElement("span");
-    deleteLogo.classList.add("material-symbols-rounded", "delete-logo");
+    deleteLogo.classList.add("material-symbols-rounded", "delete-logo", "notranslate");
     deleteLogo.textContent = "delete";
     deleteButton.appendChild(deleteLogo);
     todoButtons.appendChild(editButton);

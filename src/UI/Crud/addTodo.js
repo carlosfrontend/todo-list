@@ -1,6 +1,7 @@
 import Todo from "../../Models/Todo";
 import getDataFromLocalStorage from "../../LocalStorage/getDataFromLocalStorage";
 import saveToLocalStorage from "../../LocalStorage/saveToLocalStorage";
+import showProjectAndTodos from "../Views/showProjectAndTodos";
 const addTodo = () => {
   const todoForm = document.querySelector("#addForm");
   todoForm.addEventListener("submit", () => {
@@ -23,6 +24,7 @@ const addTodo = () => {
       if (project.name === projectName.value) {
         project.todos.push(newTodo);
         saveToLocalStorage(todolist);
+        showProjectAndTodos(project.name);
       }
     });
     todoForm.reset();
