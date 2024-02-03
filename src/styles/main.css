@@ -308,6 +308,22 @@ input.completed {
   display: flex;
   gap: 1em;
   align-items: center;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: start;
+}
+
+.my-project{
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.delete-button, .edit-button{
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
 }
 
 .delete-button {
@@ -316,6 +332,7 @@ input.completed {
 
 .edit-button {
   background-color: rgb(255, 162, 0);
+ 
 }
 
 .edit-logo,
@@ -459,7 +476,7 @@ footer {
 .todo-title {
   color: rgb(59, 65, 72);
   font-weight: 800;
-  font-size: 2rem;
+  font-size: 1.6rem;
   text-decoration: underline;
 }
 
@@ -477,7 +494,7 @@ footer {
 
 .note {
   background-color: #ffffff;
-  padding: 20px 30px;
+  padding: 8px;
   border-radius: 10px;
   border: 1px solid #000000;
 }

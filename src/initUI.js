@@ -14,6 +14,7 @@ import deleteProject from "./UI/Crud/deleteProject";
 import showProjectInPanel from "./UI/Views/showProjectInPanel";
 import getDataFromLocalStorage from "./LocalStorage/getDataFromLocalStorage";
 import addTodo from "./UI/Crud/addTodo";
+import showProjectAndTodos from "./UI/Views/showProjectAndTodos";
 
 const initUI = () => {
   // When the page is loaded set the default project Inbox into localStorage
@@ -24,7 +25,7 @@ const initUI = () => {
   myLogo.src = logoImg;
   ghLogo.src = logoGh;
   myLogo.alt = "Todo List Logo";
-  ghLogo.alt = "Github Logo"; 
+  ghLogo.alt = "Github Logo";
   // Change the sidebar open and close icons when the document is loaded
   window.addEventListener("DOMContentLoaded", () => {
     if (window.innerWidth <= 700) {
@@ -61,6 +62,32 @@ const initUI = () => {
     }
   });
 
+  document
+    .querySelector("#inbox-in-tasks-box")
+    .addEventListener("click", (e) => {
+      const projectName = "Inbox";
+      showProjectAndTodos(projectName);
+    });
+  document
+    .querySelector("#inbox-in-projects-box")
+    .addEventListener("click", (e) => {
+      const projectName = "Inbox";
+      showProjectAndTodos(projectName);
+    });
+
+  const myProjects = getDataFromLocalStorage();
+
+  myProjects.map((el) => {
+    document.querySelector(".projects-box").addEventListener(
+      "click",
+      (e) => {
+        if (el.id === e.target.id) {
+          showProjectAndTodos(el.name);
+        }
+      },
+      false
+    );
+  });
   // Add todo
   addTodo();
   // Add projects
