@@ -26,6 +26,21 @@ const initUI = () => {
   ghLogo.src = logoGh;
   myLogo.alt = "Todo List Logo";
   ghLogo.alt = "Github Logo";
+
+    // Add todo
+    addTodo();
+    // Add projects
+    addProject();
+  
+    if (getDataFromLocalStorage() !== null) {
+      const parsed = getDataFromLocalStorage();
+      parsed
+        .filter((proj) => proj.name !== "Inbox")
+        .map((el) => {
+          showProjectInPanel(el);
+        });
+    }
+
   // Change the sidebar open and close icons when the document is loaded
   window.addEventListener("DOMContentLoaded", () => {
     if (window.innerWidth <= 700) {
@@ -39,72 +54,74 @@ const initUI = () => {
     togglePanelIcons();
   });
 
-  document.addEventListener("click", (e) => {
+  document.querySelector(".main").addEventListener("click", (e) => {
     // Enable togglePanel at click on button
     if (e.target.closest("#toggPanelBtn")) {
       togglePanel();
     }
-    if (e.target.id === "collapseBtn") {
-      // Avtivate dropdown functionality for shows or hides projects in the projects box
-      dropdown(e);
-    }
+  });
+
+  document.querySelector(".tasks-box").addEventListener("click", (e) => {
+    // Open and close the dialog for add Todos
     if (e.target.closest(".add")) {
-      // Open and close the dialog for add Todos
       toggleAddTodoDialog();
     }
+    // Shows Inbox todos in main
+    if (e.target.closest("#inbox-in-tasks-box")) {
+      const projectName = "Inbox";
+      showProjectAndTodos(projectName);
+    }
+  });
+
+  document.querySelector("#addForm").addEventListener("click", (e) => {
+    // Set the default date of the date-local field at today as min property
     if (e.target.id === "dueDate") {
-      // Set the default date of the date-local field at today as min property
       resetCalendar(e);
     }
-    // Open and close the add project dialog
-    if (e.target.closest("#addProjBtn")) {
-      toggleAddProjectDialog();
+  });
+
+  document
+    .querySelector(".menu-element-project")
+    .addEventListener("click", (e) => {
+      // Open the dialog for add project
+      if (e.target.closest("#addProjBtn")) {
+        toggleAddProjectDialog();
+      }
+
+      // Avtivate dropdown functionality for shows or hides projects in the projects box
+      if (e.target.id === "collapseBtn") {
+        dropdown(e);
+      }
+    });
+
+  document.querySelector(".projects-box").addEventListener("click", (e) => {
+    const myProjects = getDataFromLocalStorage();
+    // Shows Inbox todos in main
+    if (e.target.closest("#inbox-in-projects-box")) {
+      const projectName = "Inbox";
+      showProjectAndTodos(projectName);
     }
+    
+    myProjects.map((el) => {
+      const myId = e.target.id;
+      console.log(e.target)
+      if(myId === 'delete-proj-btn'){
+        deleteProject(e);    
+      }
+      if (e.target.id === el.id) {
+        showProjectAndTodos(el.name);
+        // This bubbles !!!!!
+      }
+      
+    });
+
+  
   });
 
-  document
-    .querySelector("#inbox-in-tasks-box")
-    .addEventListener("click", (e) => {
-      const projectName = "Inbox";
-      showProjectAndTodos(projectName);
-    });
-  document
-    .querySelector("#inbox-in-projects-box")
-    .addEventListener("click", (e) => {
-      const projectName = "Inbox";
-      showProjectAndTodos(projectName);
-    });
-
-  const myProjects = getDataFromLocalStorage();
-
-  myProjects.map((el) => {
-    document.querySelector(".projects-box").addEventListener(
-      "click",
-      (e) => {
-        if (el.id === e.target.id) {
-          showProjectAndTodos(el.name);
-        }
-      },
-      false
-    );
-  });
-  // Add todo
-  addTodo();
-  // Add projects
-  addProject();
-
-  if (getDataFromLocalStorage() !== null) {
-    const parsed = getDataFromLocalStorage();
-    parsed
-      .filter((proj) => proj.name !== "Inbox")
-      .map((el) => {
-        showProjectInPanel(el);
-      });
-  }
 
   // Delete projects
 
-  deleteProject();
+  // deleteProject();
 };
 
 export default initUI;

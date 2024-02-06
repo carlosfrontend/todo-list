@@ -485,6 +485,9 @@ footer {
   color: #3d3d3d;
   font-weight: 600;
 }
+#dueDate, #priority{
+  cursor: pointer;
+}
 
 .notes {
   display: flex;

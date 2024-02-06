@@ -1,10 +1,9 @@
 import getDataFromLocalStorage from "../../LocalStorage/getDataFromLocalStorage";
 import saveToLocalStorage from "../../LocalStorage/saveToLocalStorage";
 
-const deleteProject = () => {
-  document.querySelector(".projects-box").addEventListener("click", (e) => {
+const deleteProject = (e) => {
+  
     const projectName = document.querySelector("#project_name");
-    if (e.target.textContent !== "delete") return;
     // Delete projects from localStorage
     const parsed = getDataFromLocalStorage();
     const myHtmlItem = e.target.closest(".project-item");
@@ -24,6 +23,6 @@ const deleteProject = () => {
         });
       }
     });
-  });
+  
 };
 export default deleteProject;
