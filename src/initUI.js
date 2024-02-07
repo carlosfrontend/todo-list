@@ -27,6 +27,7 @@ const initUI = () => {
   ghLogo.src = logoGh;
   myLogo.alt = "Todo List Logo";
   ghLogo.alt = "Github Logo";
+  // When the page is loaded set the focus in Inbox
   document.querySelector("#inbox-in-tasks-box").focus();
   showProjectAndTodos(todolist[0].name);
 
@@ -81,6 +82,12 @@ const initUI = () => {
     // Set the default date of the date-local field at today as min property
     if (e.target.id === "dueDate") {
       resetCalendar(e);
+    }
+
+    if (e.target.closest("#cancel-add")) {
+      // Set focus in Inbox when the user cancel in the addTodo form
+      document.querySelector("#inbox-in-tasks-box").focus();
+      showProjectAndTodos(todolist[0].name);
     }
   });
 
