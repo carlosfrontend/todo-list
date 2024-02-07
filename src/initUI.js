@@ -17,6 +17,7 @@ import addTodo from "./UI/Crud/addTodo";
 import showProjectAndTodos from "./UI/Views/showProjectAndTodos";
 
 const initUI = () => {
+  const todolist = getDataFromLocalStorage();
   // When the page is loaded set the default project Inbox into localStorage
   setDefaultProject();
   const myLogo = document.querySelector(".logo");
@@ -26,20 +27,22 @@ const initUI = () => {
   ghLogo.src = logoGh;
   myLogo.alt = "Todo List Logo";
   ghLogo.alt = "Github Logo";
+  document.querySelector("#inbox-in-tasks-box").focus();
+  showProjectAndTodos(todolist[0].name);
 
-    // Add todo
-    addTodo();
-    // Add projects
-    addProject();
-  
-    if (getDataFromLocalStorage() !== null) {
-      const parsed = getDataFromLocalStorage();
-      parsed
-        .filter((proj) => proj.name !== "Inbox")
-        .map((el) => {
-          showProjectInPanel(el);
-        });
-    }
+  // Add todo
+  addTodo();
+
+  // Add projects
+  addProject();
+
+  if (todolist !== null) {
+    todolist
+      .filter((proj) => proj.name !== "Inbox")
+      .map((el) => {
+        showProjectInPanel(el);
+      });
+  }
 
   // Change the sidebar open and close icons when the document is loaded
   window.addEventListener("DOMContentLoaded", () => {
@@ -66,6 +69,7 @@ const initUI = () => {
     if (e.target.closest(".add")) {
       toggleAddTodoDialog();
     }
+
     // Shows Inbox todos in main
     if (e.target.closest("#inbox-in-tasks-box")) {
       const projectName = "Inbox";
@@ -95,33 +99,30 @@ const initUI = () => {
     });
 
   document.querySelector(".projects-box").addEventListener("click", (e) => {
-    const myProjects = getDataFromLocalStorage();
-    // Shows Inbox todos in main
-    if (e.target.closest("#inbox-in-projects-box")) {
-      const projectName = "Inbox";
-      showProjectAndTodos(projectName);
+    const myId = e.target.id;
+    if (myId === "delete-proj-btn") {
+      deleteProject(e);
+      document.querySelector(".todos-container").innerHTML = "";
     }
-    
-    myProjects.map((el) => {
-      const myId = e.target.id;
-      console.log(e.target)
-      if(myId === 'delete-proj-btn'){
-        deleteProject(e);    
-      }
-      if (e.target.id === el.id) {
-        showProjectAndTodos(el.name);
-        // This bubbles !!!!!
-      }
-      
-    });
-
-  
   });
 
+  const projectItems = [...document.querySelectorAll(".project-item")];
 
-  // Delete projects
-
-  // deleteProject();
+  projectItems.map((el, index) => {
+    el.addEventListener("click", (e) => {
+      if (
+        e.currentTarget.children[1].textContent === el.children[1].textContent
+      ) {
+        if (todolist !== null) {
+          if (
+            todolist[index].name === e.currentTarget.children[1].textContent
+          ) {
+            showProjectAndTodos(todolist[index].name);
+          }
+        }
+      }
+    });
+  });
 };
 
 export default initUI;

@@ -1,3 +1,5 @@
+import getDataFromLocalStorage from "../../LocalStorage/getDataFromLocalStorage";
+
 const showProjectInPanel = (project) => {
   const projectsBox = document.querySelector(".projects-box");
   const element = document.createElement("button");
@@ -30,9 +32,9 @@ const showProjectInPanel = (project) => {
   element.appendChild(folderIcon);
   element.appendChild(projectText);
   element.appendChild(deleteButton);
-  element.appendChild(counter);
+  element.appendChild(counter); 
   projectsBox.appendChild(element);
-  projectName.appendChild(option)
+  projectName.appendChild(option);
 };
 
 export default showProjectInPanel;

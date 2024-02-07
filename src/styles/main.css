@@ -87,6 +87,7 @@ button.add:focus,
 button.menu-element:focus,
 button.project-item:focus {
   background-color: rgba(255, 30, 30, 0.138);
+  outline: none;
 }
 
 .list-add-icon {
