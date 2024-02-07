@@ -105,31 +105,21 @@ const initUI = () => {
       }
     });
 
-  document.querySelector(".projects-box").addEventListener("click", (e) => {
-    const myId = e.target.id;
-    if (myId === "delete-proj-btn") {
+  const projectsParent = document.querySelector(".projects-box");
+
+  projectsParent.addEventListener("click", handleShowChild);
+
+  function handleShowChild(e) {
+    if (e.target.closest("#delete-proj-btn")) {
+      // delete project
       deleteProject(e);
       document.querySelector(".todos-container").innerHTML = "";
+      return;
     }
-  });
-
-  const projectItems = [...document.querySelectorAll(".project-item")];
-
-  projectItems.map((el, index) => {
-    el.addEventListener("click", (e) => {
-      if (
-        e.currentTarget.children[1].textContent === el.children[1].textContent
-      ) {
-        if (todolist !== null) {
-          if (
-            todolist[index].name === e.currentTarget.children[1].textContent
-          ) {
-            showProjectAndTodos(todolist[index].name);
-          }
-        }
-      }
-    });
-  });
+    showProjectAndTodos(
+      e.target.closest(".project-item").children[1].textContent
+    );
+  }
 };
 
 export default initUI;

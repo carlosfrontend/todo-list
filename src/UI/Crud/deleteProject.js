@@ -22,5 +22,6 @@ const deleteProject = (e) => {
       });
     }
   });
+  
 };
 export default deleteProject;
