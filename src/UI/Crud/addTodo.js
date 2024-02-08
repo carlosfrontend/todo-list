@@ -25,6 +25,21 @@ const addTodo = () => {
         project.todos.push(newTodo);
         saveToLocalStorage(todolist);
         showProjectAndTodos(project.name);
+
+        // Set the focus in .poject-item buttons when one todo is created
+        setTimeout(() => {
+          if (project.name === "Inbox") {
+            document.querySelector("#inbox-in-projects-box").focus();
+          }
+
+          const projectItems = [...document.querySelectorAll(".project-item")];
+          projectItems.map((el) => {
+            if (el.children[1].textContent === project.name) {
+              el.focus();
+            }
+          });
+        }, 50);
+
       }
     });
     todoForm.reset();

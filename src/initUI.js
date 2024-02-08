@@ -29,7 +29,9 @@ const initUI = () => {
   ghLogo.alt = "Github Logo";
   // When the page is loaded set the focus in Inbox
   document.querySelector("#inbox-in-tasks-box").focus();
-  showProjectAndTodos(todolist[0].name);
+  if(todolist !== null){
+    showProjectAndTodos(todolist[0].name);
+  }
 
   // Add todo
   addTodo();
@@ -87,7 +89,9 @@ const initUI = () => {
     if (e.target.closest("#cancel-add")) {
       // Set focus in Inbox when the user cancel in the addTodo form
       document.querySelector("#inbox-in-tasks-box").focus();
+     if(todolist !== null){
       showProjectAndTodos(todolist[0].name);
+     }
     }
   });
 
