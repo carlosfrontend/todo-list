@@ -33,12 +33,12 @@ const addTodo = () => {
           }
 
           const projectItems = [...document.querySelectorAll(".project-item")];
-          projectItems.map((el) => {
+          projectItems.filter((el) => {
             if (el.children[1].textContent === project.name) {
               el.focus();
             }
           });
-        }, 50);
+        }, 0);
 
       }
     });
