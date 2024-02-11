@@ -68,7 +68,9 @@ const initUI = () => {
     }
     if (e.target.closest(".delete-button")) {
       const todoItemContainer = e.target.closest(".todo-item");
-      const projectName = document.querySelector(".project-txt").textContent;
+      const projectName = todoItemContainer
+        .querySelector(".my-project")
+        .textContent.trim();
       const myProject = todolist.find(
         (project) => project.name === projectName
       );
@@ -76,9 +78,9 @@ const initUI = () => {
       const myTodoIndex = myTodos.findIndex(
         (todo) => todo.id === todoItemContainer.id
       );
-      console.log(myTodoIndex);
       myTodos.splice(myTodoIndex, 1); // Remove the todo in localStorage
       saveToLocalStorage(todolist);
+      showProjectAndTodos(projectName);
     }
   });
 
