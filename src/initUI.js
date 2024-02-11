@@ -67,17 +67,17 @@ const initUI = () => {
       togglePanel();
     }
     if (e.target.closest(".delete-button")) {
-      const projectName =
-        e.target.parentElement.parentElement.children[6].children[1].textContent.trim();
+      const todoItemContainer = e.target.closest(".todo-item");
+      const projectName = document.querySelector(".project-txt").textContent;
       const myProject = todolist.find(
         (project) => project.name === projectName
       );
-      const myTodos = myProject.todos;
+      let myTodos = myProject.todos;
       const myTodoIndex = myTodos.findIndex(
-        (todo) => todo.id === e.target.parentElement.parentElement.id
+        (todo) => todo.id === todoItemContainer.id
       );
       console.log(myTodoIndex);
-      // myTodos.splice(myTodoIndex, 1); // Remove the todo in localStorage
+      myTodos.splice(myTodoIndex, 1); // Remove the todo in localStorage
       saveToLocalStorage(todolist);
     }
   });
