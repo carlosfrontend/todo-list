@@ -1,6 +1,4 @@
 import getDataFromLocalStorage from "../../LocalStorage/getDataFromLocalStorage";
-import settingTodoAsComplete from "../../LocalStorage/settingTodoAsComplete";
-import saveToLocalStorage from "../../LocalStorage/saveToLocalStorage";
 
 const showProjectAndTodos = (proj) => {
   const todosContainer = document.querySelector(".todos-container");

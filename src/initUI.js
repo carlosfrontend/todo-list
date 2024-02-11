@@ -15,6 +15,7 @@ import showProjectInPanel from "./UI/Views/showProjectInPanel";
 import getDataFromLocalStorage from "./LocalStorage/getDataFromLocalStorage";
 import addTodo from "./UI/Crud/addTodo";
 import showProjectAndTodos from "./UI/Views/showProjectAndTodos";
+import saveToLocalStorage from "./LocalStorage/saveToLocalStorage";
 
 const initUI = () => {
   const todolist = getDataFromLocalStorage();
@@ -29,7 +30,7 @@ const initUI = () => {
   ghLogo.alt = "Github Logo";
   // When the page is loaded set the focus in Inbox
   document.querySelector("#inbox-in-tasks-box").focus();
-  if(todolist !== null){
+  if (todolist !== null) {
     showProjectAndTodos(todolist[0].name);
   }
 
@@ -65,6 +66,20 @@ const initUI = () => {
     if (e.target.closest("#toggPanelBtn")) {
       togglePanel();
     }
+    if (e.target.closest(".delete-button")) {
+      const projectName =
+        e.target.parentElement.parentElement.children[6].children[1].textContent.trim();
+      const myProject = todolist.find(
+        (project) => project.name === projectName
+      );
+      const myTodos = myProject.todos;
+      const myTodoIndex = myTodos.findIndex(
+        (todo) => todo.id === e.target.parentElement.parentElement.id
+      );
+      console.log(myTodoIndex);
+      // myTodos.splice(myTodoIndex, 1); // Remove the todo in localStorage
+      saveToLocalStorage(todolist);
+    }
   });
 
   document.querySelector(".tasks-box").addEventListener("click", (e) => {
@@ -89,9 +104,9 @@ const initUI = () => {
     if (e.target.closest("#cancel-add")) {
       // Set focus in Inbox when the user cancel in the addTodo form
       document.querySelector("#inbox-in-tasks-box").focus();
-     if(todolist !== null){
-      showProjectAndTodos(todolist[0].name);
-     }
+      if (todolist !== null) {
+        showProjectAndTodos(todolist[0].name);
+      }
     }
   });
 
