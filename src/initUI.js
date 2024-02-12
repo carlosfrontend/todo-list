@@ -16,9 +16,10 @@ import addTodo from "./UI/Crud/addTodo";
 import showProjectAndTodos from "./UI/Views/showProjectAndTodos";
 import deleteTodo from "./UI/Crud/deleteTodo";
 import settingTodoAsCompleted from "./UI/Crud/settingTodoAsCompleted";
+import saveToLocalStorage from "./LocalStorage/saveToLocalStorage";
 
 const initUI = () => {
-  const todolist = getDataFromLocalStorage();
+  let todolist = getDataFromLocalStorage();
   // When the page is loaded set the default project Inbox into localStorage
   setDefaultProject();
   const myLogo = document.querySelector(".logo");
@@ -73,6 +74,7 @@ const initUI = () => {
     }
     if (e.target.closest(".completed")) {
      settingTodoAsCompleted(e)
+     todolist = getDataFromLocalStorage();
     }
   });
 
