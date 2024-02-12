@@ -24,7 +24,6 @@ const addTodo = () => {
       if (project.name === projectName.value) {
         project.todos.push(newTodo);
         saveToLocalStorage(todolist);
-        console.log(todolist)
         showProjectAndTodos(project.name);
 
         // Set the focus in .poject-item buttons when one todo is created

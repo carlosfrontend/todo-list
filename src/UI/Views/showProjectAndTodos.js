@@ -32,6 +32,10 @@ const showProjectAndTodos = (proj) => {
     const label = document.createElement("label");
     const input = document.createElement("input");
     input.type = "checkbox";
+    input.checked = todo.completed;
+    input.checked === true
+      ? todoItem.classList.add("todo-completed")
+      : todoItem.classList.remove("todo-completed");
     input.classList.add("completed");
     label.classList.add("completed-label");
     label.textContent = "Completed";
@@ -102,7 +106,6 @@ const showProjectAndTodos = (proj) => {
     todoItem.appendChild(todoButtons);
     todosContainer.appendChild(todoItem);
   });
-
 };
 
 export default showProjectAndTodos;

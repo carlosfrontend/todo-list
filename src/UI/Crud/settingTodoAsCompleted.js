@@ -12,7 +12,7 @@ const settingTodoAsCompleted = (e) => {
     const myTodo = myTodos.filter(
       (todo) => todo.id === e.target.parentElement.parentElement.id
     )[0];
-    console.log(myTodo)
+    
     myTodo.completed === false
       ? (myTodo.completed = true)
       : (myTodo.completed = false);
