@@ -15,8 +15,7 @@ import getDataFromLocalStorage from "./LocalStorage/getDataFromLocalStorage";
 import addTodo from "./UI/Crud/addTodo";
 import showProjectAndTodos from "./UI/Views/showProjectAndTodos";
 import deleteTodo from "./UI/Crud/deleteTodo";
-import settingTodoAsComplete from "./LocalStorage/settingTodoAsComplete";
-import saveToLocalStorage from "./LocalStorage/saveToLocalStorage";
+import settingTodoAsCompleted from "./UI/Crud/settingTodoAsCompleted";
 
 const initUI = () => {
   const todolist = getDataFromLocalStorage();
@@ -73,19 +72,7 @@ const initUI = () => {
       deleteTodo(e);
     }
     if (e.target.closest(".completed")) {
-      const projectName = document
-        .querySelector(".my-project")
-        .textContent.trim();
-      const myProject = todolist.find(
-        (project) => project.name === projectName
-      );
-      const myTodos = myProject.todos;
-      const myTodo = myTodos.filter(
-        (todo) => todo.id === e.target.parentElement.parentElement.id
-      )[0];
-      settingTodoAsComplete(myTodo);
-      saveToLocalStorage(todolist);
-      e.target.parentElement.parentElement.classList.toggle("todo-completed");
+     settingTodoAsCompleted(e)
     }
   });
 
