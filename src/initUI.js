@@ -15,6 +15,8 @@ import getDataFromLocalStorage from "./LocalStorage/getDataFromLocalStorage";
 import addTodo from "./UI/Crud/addTodo";
 import showProjectAndTodos from "./UI/Views/showProjectAndTodos";
 import deleteTodo from "./UI/Crud/deleteTodo";
+import settingTodoAsComplete from "./LocalStorage/settingTodoAsComplete";
+import saveToLocalStorage from "./LocalStorage/saveToLocalStorage";
 
 const initUI = () => {
   const todolist = getDataFromLocalStorage();
@@ -62,7 +64,6 @@ const initUI = () => {
   });
 
   document.querySelector(".main").addEventListener("click", (e) => {
-    
     // Enable togglePanel at click on button
     if (e.target.closest("#toggPanelBtn")) {
       togglePanel();
@@ -70,6 +71,21 @@ const initUI = () => {
 
     if (e.target.closest(".delete-button")) {
       deleteTodo(e);
+    }
+    if (e.target.closest(".completed")) {
+      const projectName = document
+        .querySelector(".my-project")
+        .textContent.trim();
+      const myProject = todolist.find(
+        (project) => project.name === projectName
+      );
+      const myTodos = myProject.todos;
+      const myTodo = myTodos.filter(
+        (todo) => todo.id === e.target.parentElement.parentElement.id
+      )[0];
+      settingTodoAsComplete(myTodo);
+      saveToLocalStorage(todolist);
+      e.target.parentElement.parentElement.classList.toggle("todo-completed");
     }
   });
 
