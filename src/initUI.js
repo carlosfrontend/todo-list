@@ -1,4 +1,3 @@
-// import notYetTasks from "./UI/Views/notYetTasks/notYetTasks";
 import "./styles/main.css";
 import logoImg from "./img/logo.svg";
 import logoGh from "./img/github.svg";
@@ -15,7 +14,7 @@ import showProjectInPanel from "./UI/Views/showProjectInPanel";
 import getDataFromLocalStorage from "./LocalStorage/getDataFromLocalStorage";
 import addTodo from "./UI/Crud/addTodo";
 import showProjectAndTodos from "./UI/Views/showProjectAndTodos";
-import saveToLocalStorage from "./LocalStorage/saveToLocalStorage";
+import deleteTodo from "./UI/Crud/deleteTodo";
 
 const initUI = () => {
   const todolist = getDataFromLocalStorage();
@@ -40,6 +39,7 @@ const initUI = () => {
   // Add projects
   addProject();
 
+  // When the page is loaded shows the projects in the sidebar
   if (todolist !== null) {
     todolist
       .filter((proj) => proj.name !== "Inbox")
@@ -62,25 +62,14 @@ const initUI = () => {
   });
 
   document.querySelector(".main").addEventListener("click", (e) => {
+    
     // Enable togglePanel at click on button
     if (e.target.closest("#toggPanelBtn")) {
       togglePanel();
     }
+
     if (e.target.closest(".delete-button")) {
-      const todoItemContainer = e.target.closest(".todo-item");
-      const projectName = todoItemContainer
-        .querySelector(".my-project")
-        .textContent.trim();
-      const myProject = todolist.find(
-        (project) => project.name === projectName
-      );
-      let myTodos = myProject.todos;
-      const myTodoIndex = myTodos.findIndex(
-        (todo) => todo.id === todoItemContainer.id
-      );
-      myTodos.splice(myTodoIndex, 1); // Remove the todo in localStorage
-      saveToLocalStorage(todolist);
-      showProjectAndTodos(projectName);
+      deleteTodo(e);
     }
   });
 

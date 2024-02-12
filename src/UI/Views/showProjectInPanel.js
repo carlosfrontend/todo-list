@@ -1,5 +1,3 @@
-import getDataFromLocalStorage from "../../LocalStorage/getDataFromLocalStorage";
-
 const showProjectInPanel = (project) => {
   const projectsBox = document.querySelector(".projects-box");
   const element = document.createElement("button");
