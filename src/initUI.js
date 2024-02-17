@@ -16,7 +16,8 @@ import addTodo from "./UI/Crud/addTodo";
 import showProjectAndTodos from "./UI/Views/showProjectAndTodos";
 import deleteTodo from "./UI/Crud/deleteTodo";
 import settingTodoAsCompleted from "./UI/Crud/settingTodoAsCompleted";
-import saveToLocalStorage from "./LocalStorage/saveToLocalStorage";
+import toggleEditTodoDialog from "./UI/Dialog/toggleEditTodoDialog";
+import editTodo from "./UI/Crud/editTodo";
 
 const initUI = () => {
   let todolist = getDataFromLocalStorage();
@@ -73,8 +74,12 @@ const initUI = () => {
       deleteTodo(e);
     }
     if (e.target.closest(".completed")) {
-     settingTodoAsCompleted(e)
-     todolist = getDataFromLocalStorage();
+      settingTodoAsCompleted(e);
+      todolist = getDataFromLocalStorage();
+    }
+    if (e.target.closest(".edit-button")) {
+      toggleEditTodoDialog();
+      editTodo(e)
     }
   });
 

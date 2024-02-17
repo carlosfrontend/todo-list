@@ -296,7 +296,7 @@ button.togg-panel {
   cursor: pointer;
 }
 input.completed {
-  width:35px;
+  width: 35px;
   height: 35px;
   border-radius: 50%;
   vertical-align: middle;
@@ -307,7 +307,7 @@ input.completed {
   cursor: pointer;
 }
 
-input.completed:checked{
+input.completed:checked {
   accent-color: dodgerblue;
   appearance: auto;
   clip-path: circle(48% at 50% 50%);
@@ -322,17 +322,19 @@ input.completed:checked{
   justify-content: start;
 }
 
-.my-project{
+.my-project {
   font-size: 1.3rem;
   font-weight: bold;
 }
 
-.delete-button, .edit-button{
+.delete-button,
+.edit-button {
   display: flex;
   flex-direction: row-reverse;
   gap: 10px;
   align-items: center;
   justify-content: center;
+  color: #000000;
 }
 
 .delete-button {
@@ -341,7 +343,6 @@ input.completed:checked{
 
 .edit-button {
   background-color: rgb(255, 162, 0);
- 
 }
 
 .edit-logo,
@@ -354,7 +355,7 @@ input.completed:checked{
 ::backdrop {
   background-color: rgba(21, 22, 23, 0.116);
 }
-#dialog-add-task {
+#dialog-add-task, #dialog-edit-task {
   width: 700px;
   margin: 2% auto;
   background-color: rgb(255, 255, 255);
@@ -364,7 +365,7 @@ input.completed:checked{
   z-index: 999999;
 }
 
-#addForm {
+#addForm, #editForm {
   padding: 1em 2em;
   display: flex;
   gap: 11px;
@@ -408,14 +409,16 @@ select {
   background-color: dodgerblue;
 }
 
-#cancel-add,
+#cancel-add, #cancel-edit,
 #cancel-add-project {
   background-color: red;
 }
 
 #submitTodoBtn,
 #cancel-add,
+#cancel-edit,
 #submitProjBtn,
+#save,
 #cancel-add-project {
   width: 100px;
   height: 40px;
@@ -425,6 +428,10 @@ select {
   cursor: pointer;
   border: none;
   border-radius: 8px;
+}
+
+#save{
+  background-color: #338000;
 }
 
 #delete-proj-btn {
@@ -494,7 +501,8 @@ footer {
   color: #3d3d3d;
   font-weight: 600;
 }
-#dueDate, #priority{
+#dueDate,
+#priority {
   cursor: pointer;
 }
 
@@ -517,13 +525,16 @@ footer {
   font-weight: 700;
 }
 
-.todo-completed{
+.todo-completed-txt {
   text-decoration: line-through;
+}
+
+.todo-completed-bg {
   background-color: #1914141d;
 }
 
 @media screen and (max-width: 700px) {
-  #dialog-add-task {
+  #dialog-add-task, #dialog-edit-task {
     position: absolute;
     left: 50%;
     top: 50%;
@@ -541,7 +552,7 @@ footer {
 }
 
 @media screen and (min-width: 700px) {
-  #dialog-add-task {
+  #dialog-add-task, #dialog-edit-task {
     position: absolute;
     left: 50%;
     top: 50%;

@@ -1,4 +1,5 @@
 import getDataFromLocalStorage from "../../LocalStorage/getDataFromLocalStorage";
+import {format} from 'date-fns';
 
 const showProjectAndTodos = (proj) => {
   const todosContainer = document.querySelector(".todos-container");
@@ -22,7 +23,7 @@ const showProjectAndTodos = (proj) => {
     spanDueDate.textContent = "Due Date:";
     const dueDate = document.createElement("span");
     dueDate.classList.add("due-date");
-    dueDate.textContent = " " + todo.dueDate;
+    dueDate.textContent = " " + format(todo.dueDate, "MMMM dd y hh:mm");
     const todoPriority = document.createElement("div");
     const spanPriority = document.createElement("span");
     const priority = document.createElement("span");
@@ -34,8 +35,26 @@ const showProjectAndTodos = (proj) => {
     input.type = "checkbox";
     input.checked = todo.completed;
     input.checked === true
-      ? todoItem.classList.add("todo-completed")
-      : todoItem.classList.remove("todo-completed");
+      ? todoItem.classList.add("todo-completed-bg")
+      : todoItem.classList.remove("todo-completed-bg");
+
+    input.checked === true
+      ? todoTitle.classList.add("todo-completed-txt")
+      : todoTitle.classList.remove("todo-completed-txt");
+    input.checked === true
+      ? todoDesciption.classList.add("todo-completed-txt")
+      : todoDesciption.classList.remove("todo-completed-txt");
+    input.checked === true
+      ? todoDueDate.classList.add("todo-completed-txt")
+      : todoDueDate.classList.remove("todo-completed-txt");
+    input.checked === true
+      ? todoPriority.classList.add("todo-completed-txt")
+      : todoPriority.classList.remove("todo-completed-txt");
+
+    input.checked === true
+      ? notes.classList.add("todo-completed-txt")
+      : notes.classList.remove("todo-completed-txt");
+
     input.classList.add("completed");
     label.classList.add("completed-label");
     label.textContent = "Completed";

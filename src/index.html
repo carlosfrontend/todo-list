@@ -87,6 +87,58 @@
       </div>
     </form>
   </dialog>
+  <dialog id="dialog-edit-task">
+    <form action="" method="dialog" id="editForm">
+      <h1>Edit this Todo</h1>
+      <label for="edit-title">Title</label>
+      <input
+        type="text"
+        name="edit-title"
+        id="edit-title"
+        placeholder="Todo Title"
+        required
+        maxlength="45"
+        title="A maximum Of 45 Characters"
+      />
+      <label for="description">Description</label>
+      <input
+        type="text"
+        name="edit-description"
+        id="edit-description"
+        placeholder="Todo Description"
+        required
+        maxlength="45"
+        title="A maximum Of 45 Characters"
+      />
+      <label for="edit-dueDate">Due Date</label>
+      <input type="datetime-local" name="edit-dueDate" id="edit-dueDate" required />
+      <label for="edit-priority">Priority</label>
+      <select name="edit-priority" id="edit-priority" required>
+        <option disabled selected value>Select An Option</option>
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+      </select>
+      <label for="edit-notes">Notes</label>
+      <textarea
+        name="edit-notes"
+        id="edit-notes"
+        required
+        maxlength="100"
+        title="Maximum Of 100 Characters"
+      ></textarea>
+      <label for="edit-project_name">Choose A Project</label>
+      <select name="edit-project_name" id="edit-project_name">
+        <option selected value="Inbox">Inbox</option>
+      </select>
+
+      <div class="todo-buttons">
+        <button id="cancel-edit" type="reset">Cancel</button>
+
+        <button type="submit" id="save">Save</button>
+      </div>
+    </form>
+  </dialog>
   <body>
     <aside class="sidebar">
       <div class="user-container">
@@ -171,49 +223,6 @@
         <h1 class="title">Todo List</h1>
       </header>
       <div class="todos-container">
-<!--         <div class="todo-item">
-          <h3 class="todo-title">My todo title</h3>
-          <p class="todo-description">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi
-            quaerat tempora, non possimus enim eaque ducimus, laborum amet
-            impedit ipsa vel qui modi optio beatae minima aliquid, iste nostrum
-            debitis?
-          </p>
-          <div class="todo-duedate">
-            <span>DueDate:</span>
-            <span class="due-date">Value Date</span>
-          </div>
-            <div class="todo-priority">
-              <span>Priority:</span>
-              <span class="priority">Priority Value</span>
-            </div>
-          <div class="notes">
-            <span class="notes-title">Notes:</span>
-            <p class="note">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel
-              excepturi qui facere quibusdam repellat! Atque repellendus nemo,
-              necessitatibus quibusdam provident totam nesciunt quisquam
-              pariatur incidunt ut culpa harum impedit molestiae.
-            </p>
-          </div
-          >
-          <label class="completed-label">
-            <input type="radio" class="completed"/>
-            Completed
-          </label>
-          <div class="project-name-title">
-            <span class="material-symbols-rounded project-logo">numbers</span><span class="my-project"> My project</span>
-          </div>
-
-         <div class="todo-buttons">
-          <button type="button" class="edit-button"><span class="material-symbols-rounded edit-logo">
-            edit
-            </span> Edit</button>
-          <button type="button" class="delete-button"><span class="material-symbols-rounded delete-logo">
-            delete
-            </span>Delete</button>
-         </div>
-        </div>    -->     
       </div>
     </div>
     <footer>

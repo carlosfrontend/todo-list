@@ -1,4 +1,3 @@
-import hidesPanel from "../Panel/hidesPanel";
 const toggleAddTodoDialog = () => {
   const dialogAddTask = document.querySelector("#dialog-add-task");
   const cancelAddButton = document.querySelector("#cancel-add");
