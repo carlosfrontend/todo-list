@@ -2,9 +2,11 @@ import getDataFromLocalStorage from "../../LocalStorage/getDataFromLocalStorage"
 
 const editTodo = (e) => {
   const todolist = getDataFromLocalStorage();
-  let todoItemContainer = e.target.parentElement.parentElement;
-  let projectName = (e.target.parentNode.parentNode.children[6].children[1].textContent).trim();
-  const addOptions = [...document.querySelector("#project_name").children].slice();
+  const todoItemContainer = e.target.closest(".todo-item");
+  const projectName = todoItemContainer.childNodes[6].childNodes[1].innerText;
+  const addOptions = [
+    ...document.querySelector("#project_name").children,
+  ].slice();
   let todos = todolist.find((el) => el.name === projectName).todos;
   const myTodo = todos.find((todo) => todo.id === todoItemContainer.id);
   console.log(myTodo);
@@ -15,8 +17,8 @@ const editTodo = (e) => {
   document.querySelector("#edit-notes").value = myTodo.notes;
   addOptions.forEach(
     (opt, index) =>
-    (document.querySelector("#edit-project_name")[index] = addOptions[index])
-    );
+      (document.querySelector("#edit-project_name")[index] = addOptions[index])
+  );
   document.querySelector("#edit-project_name").value = myTodo.projectName;
 };
 
