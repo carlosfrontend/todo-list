@@ -9,7 +9,6 @@ const editTodo = (e) => {
   ].slice();
   let todos = todolist.find((el) => el.name === projectName).todos;
   const myTodo = todos.find((todo) => todo.id === todoItemContainer.id);
-  console.log(myTodo);
   document.querySelector("#edit-title").value = myTodo.title;
   document.querySelector("#edit-description").value = myTodo.description;
   document.querySelector("#edit-dueDate").value = myTodo.dueDate;
