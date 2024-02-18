@@ -111,7 +111,12 @@
         title="A maximum Of 45 Characters"
       />
       <label for="edit-dueDate">Due Date</label>
-      <input type="datetime-local" name="edit-dueDate" id="edit-dueDate" required />
+      <input
+        type="datetime-local"
+        name="edit-dueDate"
+        id="edit-dueDate"
+        required
+      />
       <label for="edit-priority">Priority</label>
       <select name="edit-priority" id="edit-priority" required>
         <option disabled selected value>Select An Option</option>
@@ -127,6 +132,11 @@
         maxlength="100"
         title="Maximum Of 100 Characters"
       ></textarea>
+      <label for="isCompleted"> Completed </label>
+      <select name="isCompleted" id="isCompleted">
+        <option value="true">Completed</option>
+        <option value="false">Uncompleted</option>
+      </select>
       <label for="edit-project_name">Choose A Project</label>
       <select name="edit-project_name" id="edit-project_name">
         <option selected value="Inbox">Inbox</option>
@@ -222,8 +232,7 @@
         <img class="logo" />
         <h1 class="title">Todo List</h1>
       </header>
-      <div class="todos-container">
-      </div>
+      <div class="todos-container"></div>
     </div>
     <footer>
       <a
