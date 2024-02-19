@@ -50,7 +50,6 @@ const editTodo = (e) => {
       todos[myIndex] = myTodo;
       saveToLocalStorage(todolist);
       showProjectAndTodos(myTodo.projectName);
-      console.log(todos);
     } else {
       // Removes the todo of the project
       todos.splice(todos.findIndex((todo) => todo.id === todoItemContainer.id));
@@ -61,6 +60,18 @@ const editTodo = (e) => {
       selectedTodos.push(myTodo);
       saveToLocalStorage(todolist);
       showProjectAndTodos(myTodo.projectName);
+      const myProjects = [...document.querySelectorAll(".project-item")];
+      myProjects.map((el) => {
+        if (el.children[1].textContent === myTodo.projectName) {
+          setTimeout(() => {
+            el.focus();
+          }, 0);
+        }
+      });
+      addOptions.forEach(
+        (opt, index) =>
+          (document.querySelector("#project_name")[index] = addOptions[index])
+      );
     }
   });
 };

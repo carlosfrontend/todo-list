@@ -79,7 +79,7 @@ const initUI = () => {
     }
     if (e.target.closest(".edit-button")) {
       toggleEditTodoDialog();
-      editTodo(e)
+      editTodo(e);
     }
   });
 
@@ -136,9 +136,11 @@ const initUI = () => {
       document.querySelector(".todos-container").innerHTML = "";
       return;
     }
-    showProjectAndTodos(
-      e.target.closest(".project-item").children[1].textContent
-    );
+    if (e.target.closest(".project-item")) {
+      showProjectAndTodos(
+        e.target.closest(".project-item").children[1].textContent
+      );
+    }
   }
 };
 
