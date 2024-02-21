@@ -23,7 +23,7 @@ const showProjectAndTodos = (proj) => {
     spanDueDate.textContent = "Due Date:";
     const dueDate = document.createElement("span");
     dueDate.classList.add("due-date");
-    dueDate.textContent = " " + format(todo.dueDate, "MMMM dd y hh:mm");
+    dueDate.textContent = " " + format(todo.dueDate, "MMMM dd y HH:mm");
     const todoPriority = document.createElement("div");
     const spanPriority = document.createElement("span");
     const priority = document.createElement("span");
