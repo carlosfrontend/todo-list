@@ -1,11 +1,11 @@
-import { format, getDate } from "date-fns";
+import { format } from "date-fns";
 import Todo from "../../Models/Todo";
 import getDataFromLocalStorage from "../../LocalStorage/getDataFromLocalStorage";
 import saveToLocalStorage from "../../LocalStorage/saveToLocalStorage";
 import showProjectAndTodos from "../Views/showProjectAndTodos";
 
 const editTodo = (e) => {
-  const todosContainer = document.querySelector('.todos-container')
+  const todosContainer = document.querySelector(".todos-container");
   const itemContainer = e.target.closest(".todo-item");
   const itemId = itemContainer.id;
   const cardTitle = itemContainer.children[0].textContent;
@@ -47,7 +47,7 @@ const editTodo = (e) => {
     .querySelector("#edit-project_name")
     .setAttribute("selected", cardProjectName);
 
-  const handleEdit = (event) => {
+  const handleEdit = () => {
     const myTitle = document.querySelector("#edit-title").value;
     const myDescription = document.querySelector("#edit-description").value;
     const myDueDate = document.querySelector("#edit-dueDate").value;
@@ -75,6 +75,7 @@ const editTodo = (e) => {
       let myProject = todolist.find(
         (project) => project.name === cardProjectName
       );
+
       let mylocalStorageTodoIndex = myProject.todos.findIndex(
         (todo) => todo.id === itemId
       );
@@ -91,8 +92,11 @@ const editTodo = (e) => {
         }
       });
     } else {
+      // Moves a todo to other project
       let todolist = getDataFromLocalStorage();
-      let projectTarjet = todolist.find(project => project.name === myTodoObj.projectName);
+      let projectTarjet = todolist.find(
+        (project) => project.name === myTodoObj.projectName
+      );
       let actualProject = todolist.find(
         (project) => project.name === cardProjectName
       );
@@ -112,14 +116,12 @@ const editTodo = (e) => {
           }, 0);
         }
       });
-
-      console.log("is a diferent project");
     }
-
-    console.log(myTodoObj);
   };
 
-  document.querySelector("#editForm").addEventListener("submit", handleEdit);
+  document
+    .querySelector("#editForm")
+    .addEventListener("submit", handleEdit, { once: true });
 };
 
 export default editTodo;
