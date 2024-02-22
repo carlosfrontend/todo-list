@@ -3,6 +3,7 @@ import Todo from "../../Models/Todo";
 import getDataFromLocalStorage from "../../LocalStorage/getDataFromLocalStorage";
 import saveToLocalStorage from "../../LocalStorage/saveToLocalStorage";
 import showProjectAndTodos from "../Views/showProjectAndTodos";
+import showCounters from "../Views/showCounters";
 
 const editTodo = (e) => {
   const todosContainer = document.querySelector(".todos-container");
@@ -117,6 +118,7 @@ const editTodo = (e) => {
         }
       });
     }
+    showCounters();
   };
 
   document

@@ -1,5 +1,6 @@
 import getDataFromLocalStorage from "../../LocalStorage/getDataFromLocalStorage";
 import saveToLocalStorage from "../../LocalStorage/saveToLocalStorage";
+import showCounters from "../Views/showCounters";
 import showProjectAndTodos from "../Views/showProjectAndTodos";
 
 const deleteTodo = (e) => {
@@ -19,6 +20,7 @@ const deleteTodo = (e) => {
     saveToLocalStorage(todolist);
     showProjectAndTodos(projectName);
   }
+  showCounters();
 };
 
 export default deleteTodo;

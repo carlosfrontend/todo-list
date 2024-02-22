@@ -21,8 +21,10 @@ import editTodo from "./UI/Crud/editTodo";
 import showTodosForToday from "./UI/Views/showTodosForToday";
 import showTodosForTomorrow from "./UI/Views/showTodosForTomorrow";
 import showTodosForNext from "./UI/Views/showTodosForNext";
+import showCounters from "./UI/Views/showCounters";
 
 const initUI = () => {
+  showCounters();
   let todolist = getDataFromLocalStorage();
   // When the page is loaded set the default project Inbox into localStorage
   setDefaultProject();
@@ -41,7 +43,6 @@ const initUI = () => {
 
   // Add todo
   addTodo();
-
   // Add projects
   addProject();
 
@@ -97,21 +98,21 @@ const initUI = () => {
       const projectName = "Inbox";
       showProjectAndTodos(projectName);
     }
-    
-    if(e.target.closest('.menu-element')){
-      const parentItem = e.target.closest('.menu-element');
-      const itemName = parentItem.querySelector('.menu-txt').textContent
-      if(itemName !== 'Inbox'){
-        switch(itemName){
-          case 'Today':
+
+    if (e.target.closest(".menu-element")) {
+      const parentItem = e.target.closest(".menu-element");
+      const itemName = parentItem.querySelector(".menu-txt").textContent;
+      if (itemName !== "Inbox") {
+        switch (itemName) {
+          case "Today":
             showTodosForToday();
-          break;
-          case 'Tomorrow':
+            break;
+          case "Tomorrow":
             showTodosForTomorrow();
-          break;
-          case 'Next':
+            break;
+          case "Next":
             showTodosForNext();
-          break;
+            break;
         }
       }
     }

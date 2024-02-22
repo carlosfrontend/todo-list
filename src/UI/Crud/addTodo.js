@@ -2,6 +2,7 @@ import Todo from "../../Models/Todo";
 import getDataFromLocalStorage from "../../LocalStorage/getDataFromLocalStorage";
 import saveToLocalStorage from "../../LocalStorage/saveToLocalStorage";
 import showProjectAndTodos from "../Views/showProjectAndTodos";
+import showCounters from "../Views/showCounters";
 const addTodo = () => {
   const todoForm = document.querySelector("#addForm");
   todoForm.addEventListener("submit", () => {
@@ -25,7 +26,6 @@ const addTodo = () => {
         project.todos.push(newTodo);
         saveToLocalStorage(todolist);
         showProjectAndTodos(project.name);
-
         // Set the focus in .poject-item buttons when one todo is created
         setTimeout(() => {
           if (project.name === "Inbox") {
@@ -39,10 +39,10 @@ const addTodo = () => {
             }
           });
         }, 0);
-
       }
     });
     todoForm.reset();
+    showCounters();
   });
 };
 
