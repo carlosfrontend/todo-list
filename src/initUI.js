@@ -18,6 +18,9 @@ import deleteTodo from "./UI/Crud/deleteTodo";
 import settingTodoAsCompleted from "./UI/Crud/settingTodoAsCompleted";
 import toggleEditTodoDialog from "./UI/Dialog/toggleEditTodoDialog";
 import editTodo from "./UI/Crud/editTodo";
+import showTodosForToday from "./UI/Views/showTodosForToday";
+import showTodosForTomorrow from "./UI/Views/showTodosForTomorrow";
+import showTodosForNext from "./UI/Views/showTodosForNext";
 
 const initUI = () => {
   let todolist = getDataFromLocalStorage();
@@ -93,6 +96,24 @@ const initUI = () => {
     if (e.target.closest("#inbox-in-tasks-box")) {
       const projectName = "Inbox";
       showProjectAndTodos(projectName);
+    }
+    
+    if(e.target.closest('.menu-element')){
+      const parentItem = e.target.closest('.menu-element');
+      const itemName = parentItem.querySelector('.menu-txt').textContent
+      if(itemName !== 'Inbox'){
+        switch(itemName){
+          case 'Today':
+            showTodosForToday();
+          break;
+          case 'Tomorrow':
+            showTodosForTomorrow();
+          break;
+          case 'Next':
+            showTodosForNext();
+          break;
+        }
+      }
     }
   });
 
