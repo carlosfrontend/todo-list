@@ -105,6 +105,12 @@ const editTodo = (e) => {
         (todo) => todo.id === itemId
       );
       actualProject.todos.splice(actualIndex, 1);
+      let actualProjectItem = [
+        ...document.querySelectorAll(".project-item"),
+      ].find((el) => el.children[1].textContent === actualProject.name);
+
+      actualProjectItem.lastChild.innerText = actualProject.todos.length;
+
       projectTarjet.todos.push(myTodoObj);
       saveToLocalStorage(todolist);
       itemContainer.remove();
@@ -114,6 +120,7 @@ const editTodo = (e) => {
         if (el.children[1].textContent.trim() === myTodoObj.projectName) {
           setTimeout(() => {
             el.focus();
+            el.lastChild.innerText = projectTarjet.todos.length;
           }, 0);
         }
       });

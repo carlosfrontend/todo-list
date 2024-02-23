@@ -19,6 +19,12 @@ const deleteTodo = (e) => {
     myTodos.splice(myTodoIndex, 1); // Remove the todo in localStorage
     saveToLocalStorage(todolist);
     showProjectAndTodos(projectName);
+    const myItems = [...document.querySelectorAll(".project-item")];
+    const myItem = myItems.find(
+      (el) => el.children[1].textContent === projectName
+    );
+    const myTodosArr = todolist.find((el) => el.name === projectName);
+    myItem.lastChild.innerText = myTodosArr.todos.length;
   }
   showCounters();
 };

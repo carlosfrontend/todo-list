@@ -1,3 +1,5 @@
+import getDataFromLocalStorage from "../../LocalStorage/getDataFromLocalStorage";
+
 const showProjectInPanel = (project) => {
   const projectsBox = document.querySelector(".projects-box");
   const element = document.createElement("button");
@@ -30,9 +32,18 @@ const showProjectInPanel = (project) => {
   element.appendChild(folderIcon);
   element.appendChild(projectText);
   element.appendChild(deleteButton);
-  element.appendChild(counter); 
+  element.appendChild(counter);
   projectsBox.appendChild(element);
   projectName.appendChild(option);
+  let myItems = [...document.querySelectorAll(".project-item")].filter(
+    (item) => item.id !== "inbox-in-projects-box"
+  );
+  let todolist = getDataFromLocalStorage();
+  let myProjects = todolist.filter((el) => el.name !== "Inbox");
+  myItems.map(
+    (item, index) =>
+      (item.children[3].textContent = myProjects[index].todos.length)
+  );
 };
 
 export default showProjectInPanel;
