@@ -43,6 +43,7 @@ const initUI = () => {
 
   // Add todo
   addTodo();
+  showCounters();
   // Add projects
   addProject();
 
@@ -76,6 +77,7 @@ const initUI = () => {
 
     if (e.target.closest(".delete-button")) {
       deleteTodo(e);
+      showCounters();
     }
     if (e.target.closest(".completed")) {
       settingTodoAsCompleted(e);
@@ -84,6 +86,7 @@ const initUI = () => {
     if (e.target.closest(".edit-button")) {
       toggleEditTodoDialog();
       editTodo(e);
+      showCounters();
     }
   });
 
