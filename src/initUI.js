@@ -24,7 +24,6 @@ import showTodosForNext from "./UI/Views/showTodosForNext";
 import showCounters from "./UI/Views/showCounters";
 
 const initUI = () => {
-  showCounters();
   let todolist = getDataFromLocalStorage();
   // When the page is loaded set the default project Inbox into localStorage
   setDefaultProject();
