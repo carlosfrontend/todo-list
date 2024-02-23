@@ -37,8 +37,6 @@ const addTodo = () => {
             if (el.children[1].textContent === project.name) {
               el.focus();
               const myProjectLength = todolist.find(el => el.name === project.name).todos.length;
-              // console.log(myTodosArr)
-              // el.children[3].textContent = myProjectLength // Update the counter when a new todo is added
               el.lastChild.innerText = myProjectLength
             }
           });
